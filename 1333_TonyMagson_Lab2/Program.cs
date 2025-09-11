@@ -25,7 +25,7 @@
             string binary = Convert.ToString(number, 2).PadLeft(8, '0');
             string hex = number.ToString("X2");
 
-            Console.WriteLine($"Decimal: {number,3} → Binary: {binary} → Hex: {hex}");
+            Console.WriteLine($"Decimal: {number,3}  Binary: {binary} Hex: {hex}");
         }
     }
 
