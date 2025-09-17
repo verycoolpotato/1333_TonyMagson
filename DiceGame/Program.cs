@@ -4,10 +4,12 @@ namespace DiceGame
 {
     internal class Program
     {
+        //Initialize and start game
         static void Main(string[] args)
         {
-            GameManager manager = new GameManager();
-            manager.PlayGame();
+            // make the game manager and start the game
+            GameManager gm = new GameManager();
+            gm.Play();
         }
     }
 }
