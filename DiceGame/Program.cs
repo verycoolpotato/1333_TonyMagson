@@ -8,8 +8,8 @@ namespace DiceGame
         static void Main(string[] args)
         {
             // make the game manager and start the game
-            GameManager gm = new GameManager();
-            gm.Play();
+            GameManager Manager = new GameManager();
+            Manager.Play();
         }
     }
 }

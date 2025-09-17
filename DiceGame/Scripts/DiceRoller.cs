@@ -16,24 +16,24 @@ namespace DiceGame.Scripts
             random = new Random();
         }
 
-        // Bonus: Flexible roll method with any number of dice
-        public int Roll(params int[] sides)
+        //Takes an array of dice and returns the total rolled die values
+        public int[] Roll(params int[] dice)
         {
-            int total = 0;
+            List<int> rolledDice = new List<int>();
 
             Console.WriteLine("Rolling Dice:\n");
 
             // Loop through each requested die
-            foreach (int side in sides)
+            foreach (int die in dice)
             {
-                // Roll between 1 and 'side' inclusive
-                int result = random.Next(1, side + 1);
-                Console.WriteLine($"d{side} → {result}");
-                total += result;
+                // Roll between 1 and die inclusive
+                int result = random.Next(1, die + 1);
+                rolledDice.Add(result);
             }
 
-            return total;
+            return rolledDice.ToArray();
         }
+
     }
 
 }
