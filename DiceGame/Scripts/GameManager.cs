@@ -8,27 +8,33 @@ namespace DiceGame.Scripts
 {
     internal class GameManager
     {
+       List <int> _playerOneInventory = [];
+       List <int> _playerTwoInventory = [];
         public void Play()
         {
             // Welcome message with name + date
             Console.WriteLine("Welcome to the DiceThing (by Tony Magson)");
             Console.WriteLine("Today is " + DateTime.Now.ToShortDateString());
-            Console.WriteLine("============================================\n");
+            Console.WriteLine("\n");
+
+
+            //Allow player to add as many dice of any values as they want
+            Console.WriteLine("Enter a ");
+            
 
             // make the die roller
             DieRoller roller = new DieRoller();
 
-            int[] diceList = { 6, 8, 12, 20 };
+            
 
-            // roll 4 dice (d6, d8, d12, d20)
-            int[] results = roller.Roll(diceList);
+            
 
             int totalScore = 0;
 
             Console.WriteLine("+++++++");
             for (int roll = 0; roll < results.Length; roll++)
             {
-                Console.WriteLine($"d{diceList[roll],-3} rolled a {results[roll],2}");
+                //Console.WriteLine($"d{diceList[roll],-3} rolled a {results[roll],2}");
                 totalScore += results[roll];
             }
             Console.WriteLine("");

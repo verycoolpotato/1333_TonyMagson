@@ -16,22 +16,16 @@ namespace DiceGame.Scripts
             random = new Random();
         }
 
-        //Takes an array of dice and returns the total rolled die values
-        public int[] Roll(params int[] dice)
+        //Takes a die and rolls it, returns rolled value
+        public int Roll(int die)
         {
             List<int> rolledDice = new List<int>();
 
             Console.WriteLine("Rolling Dice:\n");
 
-            // Loop through each requested die
-            foreach (int die in dice)
-            {
-                // Roll between 1 and die inclusive
-                int result = random.Next(1, die + 1);
-                rolledDice.Add(result);
-            }
+            int result = random.Next(1, die + 1);
 
-            return rolledDice.ToArray();
+            return result;
         }
 
     }
