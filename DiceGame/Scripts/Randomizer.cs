@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace DiceGame.Scripts
 {
-    public class DieRoller
+    public class Randomizer
     {
         private Random random;
 
-        public DieRoller()
+        public Randomizer()
         {
             // Initialize Random instance once
             random = new Random();
@@ -21,11 +17,18 @@ namespace DiceGame.Scripts
         {
             List<int> rolledDice = new List<int>();
 
-            Console.WriteLine("Rolling Dice:\n");
+           
 
             int result = random.Next(1, die + 1);
 
             return result;
+        }
+
+        public int PickRandomDie(int[] choices)
+        {
+            int die = random.Next(0, choices.Length);
+
+            return choices[die];
         }
 
     }

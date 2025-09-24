@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,72 +10,128 @@ namespace DiceGame.Scripts
 {
     internal class GameManager
     {
-       List <int> _playerOneInventory = [];
-       List <int> _playerTwoInventory = [];
+
+
+        Dictionary<string, int>? Players = new Dictionary<string, int>();
+        
+
+        //References to essential systems
+        Randomizer roller = new Randomizer();
+        InventoryManager inventory = new InventoryManager();
+
         public void Play()
         {
-            // Welcome message with name + date
-            Console.WriteLine("Welcome to the DiceThing (by Tony Magson)");
+            // Initialize players in dictionary
+            Players!["Player1"] = 0;
+            Players!["Player2"] = 0;
+
+            // Intro
+            Console.WriteLine("Welcome to the DiceThing by Tony Magson");
             Console.WriteLine("Today is " + DateTime.Now.ToShortDateString());
             Console.WriteLine("\n");
 
-
-            //Allow player to add as many dice of any values as they want
-            Console.WriteLine("Enter a ");
-            
-
-            // make the die roller
-            DieRoller roller = new DieRoller();
-
-            
-
-            
-
-            int totalScore = 0;
-
-            Console.WriteLine("+++++++");
-            for (int roll = 0; roll < results.Length; roll++)
+            // Ask for Player name
+            Console.WriteLine("Enter your name:");
+            string? playerName = Console.ReadLine();
+            if (!string.IsNullOrWhiteSpace(playerName))
             {
-                //Console.WriteLine($"d{diceList[roll],-3} rolled a {results[roll],2}");
-                totalScore += results[roll];
+                Players!["Player1"] = 0;
             }
-            Console.WriteLine("");
-            Console.WriteLine($"Your Score is {totalScore}");
+            else
+            {
+                playerName = "Player1";
+            }
 
-            Console.WriteLine("+++++++\n");
+            // Choose game dice
+            inventory.DiceSetup();
 
-            // show how operators work
-            ExplainOperators();
+            // coin flip
+            Random rng = new Random();
+            bool playerFirst = rng.Next(0, 2) == 0;
 
-            // goodbye
+            int p1Die;
+            int p2Die;
+
+            if (playerFirst)
+            {
+                p1Die = PlayerChooseDie();
+                Console.WriteLine($"{playerName} Picked {p1Die}");
+
+                p2Die = roller.PickRandomDie(inventory.GameDice.ToArray());
+                Console.WriteLine($"Player 2 Picked {p2Die}");
+            }
+            else
+            {
+                p2Die = roller.PickRandomDie(inventory.GameDice.ToArray());
+                Console.WriteLine($"Player 2 Picked {p2Die}");
+
+                p1Die = PlayerChooseDie();
+                Console.WriteLine($"{playerName} Picked {p1Die}");
+            }
+
+            // Roll
+            Console.WriteLine("\nROLLINGGGGG");
+            int p1Rolled = roller.Roll(p1Die);
+            int p2Rolled = roller.Roll(p2Die);
+
+            Console.WriteLine($"{playerName} Rolled {p1Rolled}");
+            Console.WriteLine($"Player 2 Rolled {p2Rolled}");
+
+            //give points
+            int ScoreToGain = p1Rolled + p2Rolled;
+
+            if (p1Rolled > p2Rolled)
+            {
+                Players!["Player1"] += ScoreToGain;
+                Console.WriteLine($"{playerName} Won!");
+            }
+            else if (p2Rolled > p1Rolled)
+            {
+                Players!["Player2"] += ScoreToGain;
+                Console.WriteLine("Player 2 Won!");
+            }
+            else
+            {
+                Console.WriteLine("TIE, Reroll");
+            }
+
+            // Show total scores
+            Console.WriteLine($"\nTotal Scores:");
+            Console.WriteLine($"{playerName}: {Players!["Player1"]}");
+            Console.WriteLine($"Player 2: {Players!["Player2"]}");
+
+            // Goodbye
             Console.WriteLine("\nGoodbye");
         }
 
-        private void ExplainOperators()
+
+
+
+
+        private int PlayerChooseDie()
         {
-            Console.WriteLine("Operators and Examples\n");
+            //will also be wrapped in a loop
+            Console.WriteLine($"Your Dice: {string.Join(", ", inventory.GameDice)}");
+            Console.WriteLine("Select a Die to roll");
+            string? dieInput = Console.ReadLine();
 
-            // addition
-            Console.WriteLine($"2 + 2 = 4   (adds numbers)");
-
-            // subtraction
-            Console.WriteLine($"4 - 2 = 2  (subtracts numbers)");
-
-            // multiplication
-            Console.WriteLine($"2 * 2 = 4   (multiplies numbers)");
-
-            // division
-            Console.WriteLine($" 10 / 2 = 5   (divides numbers, integer division)");
-
-            // modulus
-            Console.WriteLine($"5 % 3 = 2   (remainder after division)");
-
-            // increment
-            Console.WriteLine($" x = 0 after x++ it becomes 1  (increment)");
-
-            // decrement
-            Console.WriteLine($"y = 1, after y-- it becomes 0   (decrement)");
+            if (int.TryParse(dieInput, out int dieNumber))
+            {
+                if (inventory.GameDice.Contains(dieNumber))
+                {
+                  return dieNumber;
+                    
+                }
+                else
+                {
+                    Console.WriteLine("You don't have this die.");
+                    return 0;
+                }
+            }
+            return 0;
         }
+        
+       
     }
 }
 
