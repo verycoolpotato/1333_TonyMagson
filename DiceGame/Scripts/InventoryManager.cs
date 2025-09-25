@@ -3,9 +3,9 @@
     internal class InventoryManager
     {
        
-        public List<int> GameDice = new List<int>();
-        List<int> _playerOneInventory = new List<int>();
-        List<int> _playerTwoInventory = new List<int>();
+        public List<int> GameDice = new List<int>(0);
+       public List<int> _playerOneInventory = new List<int>();
+       public List<int> _playerTwoInventory = new List<int>();
 
         // Add new die to game dice
         public void AddDieToGame(int die)
@@ -20,9 +20,10 @@
         }
 
         // Set player inventories to game dice
-        public List<int> GetDefaultInventory()
+        public void SetDefaultInventory()
         {
-            return GameDice;
+            _playerOneInventory = GameDice;
+            _playerTwoInventory = GameDice;
         }
 
         public List<int> RemoveDie(int DieToRemove, List<int> inventory)
@@ -45,9 +46,9 @@
                 string input = Console.ReadLine();
 
                 
-                if (string.IsNullOrEmpty(input))
+                if (string.IsNullOrWhiteSpace(input))
                 {
-                    if (GameDice.Count() > 0)
+                    if (GameDice.Count() <= 0)
                     {
                         Console.WriteLine("Please add dice");
                         continue;
@@ -56,12 +57,11 @@
                     {
                         Console.WriteLine("Dice Confirmed");
                         Console.WriteLine("Dice Pool: " + string.Join(", ", GameDice));
+
                         break;
                     }
                         
                 }
-                
-
                 if (int.TryParse(input, out int newDie))
                 {
                     GameDice.Add(newDie);

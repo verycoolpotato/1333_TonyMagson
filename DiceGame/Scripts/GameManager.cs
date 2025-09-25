@@ -4,8 +4,6 @@ namespace DiceGame.Scripts
 {
     internal class GameManager
     {
-
-
         Dictionary<string, int>? Players = new Dictionary<string, int>();
 
         string PlayerName = "";
@@ -53,7 +51,9 @@ namespace DiceGame.Scripts
             int p1Die;
             int p2Die;
 
-            for (int i = 0; i > inventory.GameDice.Count(); i++)
+            inventory.SetDefaultInventory();
+
+            for (int i = 0; i < inventory.GameDice.Count() +1; i++)
             {
                 if (playerFirst)
                 {
@@ -94,7 +94,7 @@ namespace DiceGame.Scripts
                 }
                 else
                 {
-                    Console.WriteLine("TIE, Reroll");
+                    Console.WriteLine("TIE, No Points");
                 }
             }
             
@@ -113,25 +113,33 @@ namespace DiceGame.Scripts
 
         private int PlayerChooseDie()
         {
-            //will also be wrapped in a loop
-            Console.WriteLine($"Your Dice: {string.Join(", ", inventory.GameDice)}");
+            Console.WriteLine("\n");
             Console.WriteLine("Select a Die to roll");
-            string? dieInput = Console.ReadLine();
-
-            if (int.TryParse(dieInput, out int dieNumber))
+            Console.WriteLine("");
+            while (true)
             {
-                if (inventory.GameDice.Contains(dieNumber))
+                Console.WriteLine($"Your Dice: {string.Join(", ", inventory._playerOneInventory)}");
+
+                string? dieInput = Console.ReadLine();
+
+                if (int.TryParse(dieInput, out int dieNumber))
                 {
-                  return dieNumber;
-                    
-                }
-                else
-                {
-                    Console.WriteLine("You don't have this die.");
-                    return 0;
+                    if (inventory._playerOneInventory.Contains(dieNumber))
+                    {
+                        inventory._playerOneInventory.Remove(dieNumber);
+                        return dieNumber;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have this die.");
+                        Console.WriteLine("\n");
+
+                    }
                 }
             }
-            return 0;
+           
+            
         }
         
        
