@@ -38,21 +38,45 @@
 
         public void DiceSetup()
         {
-            // Setup game, Will be wrapped in a loop
-            Console.WriteLine("Enter a die to add to the game");
-            string? input = Console.ReadLine();
-
-            if (!string.IsNullOrWhiteSpace(input) && int.TryParse(input, out int newDie))
+            while (true)
             {
-                GameDice.Add(newDie);
-                Console.WriteLine($"Die d{newDie} added.");
-            }
-            else
-            {
-                Console.WriteLine("No die added.");
-            }
+                // Setup game
+                Console.WriteLine("Enter a die to add to the game");
+                string input = Console.ReadLine();
 
-            Console.WriteLine("Dice Pool: " + string.Join(", ", GameDice));
+                
+                if (string.IsNullOrEmpty(input))
+                {
+                    if (GameDice.Count() > 0)
+                    {
+                        Console.WriteLine("Please add dice");
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Dice Confirmed");
+                        Console.WriteLine("Dice Pool: " + string.Join(", ", GameDice));
+                        break;
+                    }
+                        
+                }
+                
+
+                if (int.TryParse(input, out int newDie))
+                {
+                    GameDice.Add(newDie);
+                    Console.WriteLine($"Die d{newDie} added.");
+                    continue;
+                }
+                else 
+                {
+                    Console.WriteLine("Not a valid die");
+                    continue;
+                }
+
+               
+            }
+            
         }
     }
 }

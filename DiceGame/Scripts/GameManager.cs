@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace DiceGame.Scripts
 {
@@ -13,8 +7,8 @@ namespace DiceGame.Scripts
 
 
         Dictionary<string, int>? Players = new Dictionary<string, int>();
-        
 
+        string PlayerName = "";
         //References to essential systems
         Randomizer roller = new Randomizer();
         InventoryManager inventory = new InventoryManager();
@@ -31,15 +25,22 @@ namespace DiceGame.Scripts
             Console.WriteLine("\n");
 
             // Ask for Player name
-            Console.WriteLine("Enter your name:");
-            string? playerName = Console.ReadLine();
-            if (!string.IsNullOrWhiteSpace(playerName))
+
+            while (true)
             {
-                Players!["Player1"] = 0;
-            }
-            else
-            {
-                playerName = "Player1";
+                Console.WriteLine("Enter your name:");
+
+                PlayerName = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(PlayerName))
+                {
+                    Console.WriteLine("Invalid Name");
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
             }
 
             // Choose game dice
@@ -52,52 +53,54 @@ namespace DiceGame.Scripts
             int p1Die;
             int p2Die;
 
-            if (playerFirst)
+            for (int i = 0; i > inventory.GameDice.Count(); i++)
             {
-                p1Die = PlayerChooseDie();
-                Console.WriteLine($"{playerName} Picked {p1Die}");
+                if (playerFirst)
+                {
+                    p1Die = PlayerChooseDie();
+                    Console.WriteLine($"{PlayerName} Picked {p1Die}");
 
-                p2Die = roller.PickRandomDie(inventory.GameDice.ToArray());
-                Console.WriteLine($"Player 2 Picked {p2Die}");
+                    p2Die = roller.PickRandomDie(inventory.GameDice.ToArray());
+                    Console.WriteLine($"Player 2 Picked {p2Die}");
+                }
+                else
+                {
+                    p2Die = roller.PickRandomDie(inventory.GameDice.ToArray());
+                    Console.WriteLine($"Player 2 Picked {p2Die}");
+
+                    p1Die = PlayerChooseDie();
+                    Console.WriteLine($"{PlayerName} Picked {p1Die}");
+                }
+                // Roll
+                Console.WriteLine("\nROLLINGGGGG");
+                int p1Rolled = roller.Roll(p1Die);
+                int p2Rolled = roller.Roll(p2Die);
+
+                Console.WriteLine($"{PlayerName} Rolled {p1Rolled}");
+                Console.WriteLine($"Player 2 Rolled {p2Rolled}");
+
+                //give points
+                int ScoreToGain = p1Rolled + p2Rolled;
+
+                if (p1Rolled > p2Rolled)
+                {
+                    Players!["Player1"] += ScoreToGain;
+                    Console.WriteLine($"{PlayerName} Won!");
+                }
+                else if (p2Rolled > p1Rolled)
+                {
+                    Players!["Player2"] += ScoreToGain;
+                    Console.WriteLine("Player 2 Won!");
+                }
+                else
+                {
+                    Console.WriteLine("TIE, Reroll");
+                }
             }
-            else
-            {
-                p2Die = roller.PickRandomDie(inventory.GameDice.ToArray());
-                Console.WriteLine($"Player 2 Picked {p2Die}");
-
-                p1Die = PlayerChooseDie();
-                Console.WriteLine($"{playerName} Picked {p1Die}");
-            }
-
-            // Roll
-            Console.WriteLine("\nROLLINGGGGG");
-            int p1Rolled = roller.Roll(p1Die);
-            int p2Rolled = roller.Roll(p2Die);
-
-            Console.WriteLine($"{playerName} Rolled {p1Rolled}");
-            Console.WriteLine($"Player 2 Rolled {p2Rolled}");
-
-            //give points
-            int ScoreToGain = p1Rolled + p2Rolled;
-
-            if (p1Rolled > p2Rolled)
-            {
-                Players!["Player1"] += ScoreToGain;
-                Console.WriteLine($"{playerName} Won!");
-            }
-            else if (p2Rolled > p1Rolled)
-            {
-                Players!["Player2"] += ScoreToGain;
-                Console.WriteLine("Player 2 Won!");
-            }
-            else
-            {
-                Console.WriteLine("TIE, Reroll");
-            }
-
+            
             // Show total scores
             Console.WriteLine($"\nTotal Scores:");
-            Console.WriteLine($"{playerName}: {Players!["Player1"]}");
+            Console.WriteLine($"{PlayerName}: {Players!["Player1"]}");
             Console.WriteLine($"Player 2: {Players!["Player2"]}");
 
             // Goodbye
