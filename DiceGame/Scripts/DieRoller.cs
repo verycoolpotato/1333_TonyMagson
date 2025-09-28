@@ -2,11 +2,11 @@
 
 namespace DiceGame.Scripts
 {
-    public class Randomizer
+    public class DieRoller
     {
         private Random random;
 
-        public Randomizer()
+        public DieRoller()
         {
             // Initialize Random instance once
             random = new Random();

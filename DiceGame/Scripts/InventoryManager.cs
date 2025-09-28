@@ -22,8 +22,8 @@
         // Set player inventories to game dice
         public void SetDefaultInventory()
         {
-            _playerOneInventory = GameDice;
-            _playerTwoInventory = GameDice;
+            _playerOneInventory = new List<int>(GameDice);
+            _playerTwoInventory = new List<int>(GameDice);
         }
 
         public List<int> RemoveDie(int DieToRemove, List<int> inventory)
@@ -36,21 +36,51 @@
             Console.WriteLine("You dont have this die");
             return inventory;
         }
+        public int PlayerChooseDie()
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("Select a Die to roll");
+            Console.WriteLine("");
+            while (true)
+            {
+                Console.WriteLine($"Your Dice: {string.Join(", ", _playerOneInventory)}");
 
+                string? dieInput = Console.ReadLine();
+
+                if (int.TryParse(dieInput, out int dieNumber))
+                {
+                    if (_playerOneInventory.Contains(dieNumber))
+                    {
+                        _playerOneInventory.Remove(dieNumber);
+                        return dieNumber;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have this die.");
+                        Console.WriteLine("\n");
+
+                    }
+                }
+            }
+
+
+        }
         public void DiceSetup()
         {
+            Console.WriteLine("Enter a die to add to the game");
             while (true)
             {
                 // Setup game
-                Console.WriteLine("Enter a die to add to the game");
-                string input = Console.ReadLine();
+                
+                string? input = Console.ReadLine();
 
                 
                 if (string.IsNullOrWhiteSpace(input))
                 {
                     if (GameDice.Count() <= 0)
                     {
-                        Console.WriteLine("Please add dice");
+                        Console.WriteLine("Please add a die");
                         continue;
                     }
                     else
@@ -65,7 +95,8 @@
                 if (int.TryParse(input, out int newDie))
                 {
                     GameDice.Add(newDie);
-                    Console.WriteLine($"Die d{newDie} added.");
+
+                    Console.WriteLine(string.Join(", ", GameDice) + " || Add another die or leave empty to confirm");
                     continue;
                 }
                 else 

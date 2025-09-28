@@ -4,142 +4,142 @@ namespace DiceGame.Scripts
 {
     internal class GameManager
     {
-        Dictionary<string, int>? Players = new Dictionary<string, int>();
+        //Establish Player names and scores variables
+        private string[] _playerNames = new string[2];
+        private int[] _playerScores = new int[2];
 
-        string PlayerName = "";
         //References to essential systems
-        Randomizer roller = new Randomizer();
-        InventoryManager inventory = new InventoryManager();
+        private DieRoller _roller = new DieRoller();
+        private InventoryManager _inventory = new InventoryManager();
 
+        
         public void Play()
         {
-            // Initialize players in dictionary
-            Players!["Player1"] = 0;
-            Players!["Player2"] = 0;
+            //Explain and introduce the game
+            GameStartText();
 
-            // Intro
-            Console.WriteLine("Welcome to the DiceThing by Tony Magson");
-            Console.WriteLine("Today is " + DateTime.Now.ToShortDateString());
-            Console.WriteLine("\n");
+            //Setup new game parameters
+            GameSetup();
 
-            // Ask for Player name
-
-            while (true)
-            {
-                Console.WriteLine("Enter your name:");
-
-                PlayerName = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(PlayerName))
-                {
-                    Console.WriteLine("Invalid Name");
-                    continue;
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            // Choose game dice
-            inventory.DiceSetup();
-
-            // coin flip
-            Random rng = new Random();
-            bool playerFirst = rng.Next(0, 2) == 0;
-
+            //Store player die choice
             int p1Die;
             int p2Die;
 
-            inventory.SetDefaultInventory();
-
-            for (int i = 0; i < inventory.GameDice.Count() +1; i++)
+            //Game Loop
+            for (int i = 0; i < _inventory.GameDice.Count; i++)
             {
-                if (playerFirst)
-                {
-                    p1Die = PlayerChooseDie();
-                    Console.WriteLine($"{PlayerName} Picked {p1Die}");
+                Console.WriteLine($"\n=====ROUND {i + 1}=====");
+                p1Die = _inventory.PlayerChooseDie();
+                    
+                //Random die for second player
+                    p2Die = _roller.PickRandomDie(_inventory.GameDice.ToArray());
+                    Console.WriteLine($"{p1Die} vs {p2Die}");
 
-                    p2Die = roller.PickRandomDie(inventory.GameDice.ToArray());
-                    Console.WriteLine($"Player 2 Picked {p2Die}");
-                }
-                else
-                {
-                    p2Die = roller.PickRandomDie(inventory.GameDice.ToArray());
-                    Console.WriteLine($"Player 2 Picked {p2Die}");
+                //Actual Roll
+                int p1Rolled = _roller.Roll(p1Die);
+                int p2Rolled = _roller.Roll(p2Die);
 
-                    p1Die = PlayerChooseDie();
-                    Console.WriteLine($"{PlayerName} Picked {p1Die}");
-                }
-                // Roll
-                Console.WriteLine("\nROLLINGGGGG");
-                int p1Rolled = roller.Roll(p1Die);
-                int p2Rolled = roller.Roll(p2Die);
-
-                Console.WriteLine($"{PlayerName} Rolled {p1Rolled}");
-                Console.WriteLine($"Player 2 Rolled {p2Rolled}");
-
-                //give points
-                int ScoreToGain = p1Rolled + p2Rolled;
-
-                if (p1Rolled > p2Rolled)
+                // Roll Visual
+                Console.WriteLine("\n");
+                
+                string RollText = "ROLLINGGGGG";
+                foreach (char c in RollText)
                 {
-                    Players!["Player1"] += ScoreToGain;
-                    Console.WriteLine($"{PlayerName} Won!");
+                    Console.Write(c);
+                    Thread.Sleep(120);
                 }
-                else if (p2Rolled > p1Rolled)
+                Console.WriteLine($"|| {_playerNames[0]} rolled a {p1Rolled}");
+                Thread.Sleep(500);
+                foreach (char c in RollText)
                 {
-                    Players!["Player2"] += ScoreToGain;
-                    Console.WriteLine("Player 2 Won!");
+                    Console.Write(c);
+                    Thread.Sleep(120);
                 }
-                else
-                {
-                    Console.WriteLine("TIE, No Points");
-                }
+                Console.WriteLine($"|| {_playerNames[1]} rolled a {p2Rolled}");
+                Thread.Sleep(1000);
+
+                int[] rolls = {p1Rolled,p2Rolled };
+
+                int winner = rolls.Max();
+                int winnerIndex = Array.IndexOf(rolls,winner);
+
+                Console.WriteLine("");
+                Console.WriteLine($"{_playerNames[winnerIndex]} Wins this round");
+                Console.WriteLine($" {+p1Rolled + p2Rolled} points");
+
+                _playerScores[winnerIndex] += p1Rolled + p2Rolled;
+                Console.WriteLine($"Total Scores: {_playerScores[0]} to {_playerScores[1]} ");
+                Console.WriteLine();
+
             }
             
             // Show total scores
-            Console.WriteLine($"\nTotal Scores:");
-            Console.WriteLine($"{PlayerName}: {Players!["Player1"]}");
-            Console.WriteLine($"Player 2: {Players!["Player2"]}");
+            Console.WriteLine($"\n===Total Scores===:");
+            Console.WriteLine(_playerScores.Max());
+
+            int gameWinner = _playerScores.Max();
+            int gamewinnerIndex = Array.IndexOf(_playerScores, gameWinner);
+
+            Console.WriteLine($"{_playerNames[gamewinnerIndex]} is the Winner with {gameWinner} points");
+          
+
+         
+            Console.WriteLine();
 
             // Goodbye
             Console.WriteLine("\nGoodbye");
         }
 
-
-
-
-
-        private int PlayerChooseDie()
+       
+       
+        private string EnterName(int playernumber)
         {
-            Console.WriteLine("\n");
-            Console.WriteLine("Select a Die to roll");
-            Console.WriteLine("");
             while (true)
             {
-                Console.WriteLine($"Your Dice: {string.Join(", ", inventory._playerOneInventory)}");
+                Console.WriteLine($"Enter Player name");
 
-                string? dieInput = Console.ReadLine();
+                string? PlayerName = Console.ReadLine();
 
-                if (int.TryParse(dieInput, out int dieNumber))
+                if (string.IsNullOrWhiteSpace(PlayerName))
                 {
-                    if (inventory._playerOneInventory.Contains(dieNumber))
-                    {
-                        inventory._playerOneInventory.Remove(dieNumber);
-                        return dieNumber;
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have this die.");
-                        Console.WriteLine("\n");
-
-                    }
+                    Console.WriteLine("Player" + playernumber.ToString());
+                    return "Player" + playernumber.ToString();
+                    
+                }
+                else
+                {
+                    Console.WriteLine(PlayerName);
+                    return PlayerName;
+                    
                 }
             }
-           
-            
+        }
+        //Game settings
+        private void GameSetup()
+        {
+            // Ask for Player name
+            _playerNames[0] = EnterName(1);
+            _playerNames[1] = "Opponent";
+
+            // Choose game dice
+            _inventory.DiceSetup();
+
+            //Fills the player inventories with dice
+            _inventory.SetDefaultInventory();
+        }
+
+       //Introduces and explains the game
+       private void GameStartText()
+       {
+            // Intro
+            Console.WriteLine("Welcome to the DiceThing by Tony Magson");
+            Console.WriteLine("\n");
+            Console.WriteLine("                ======HOW TO PLAY======");
+            Console.WriteLine("-Input your name and the Dice you'll be playing with");
+            Console.WriteLine("-Each round players will pick a die from their inventory and roll it.");
+            Console.WriteLine("-The higher roll wins and gains score equal to both die rolls.");
+            Console.WriteLine("-In the event of a tie, player 1 wins because they are cool");
+            Console.WriteLine("");
         }
         
        

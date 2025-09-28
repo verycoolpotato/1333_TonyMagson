@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\s2513006\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\",
+  "WorkspaceRootPath": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\s2513006\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\s2513006\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\inventorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\inventorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\inventorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\s2513006\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\randomizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\randomizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\dieroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\dieroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\s2513006\\documents\\github\\1333_tonymagson\\dicegame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -32,11 +32,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "InventoryManager.cs",
-              "DocumentMoniker": "C:\\Users\\s2513006\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\InventoryManager.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\InventoryManager.cs",
               "RelativeDocumentMoniker": "Scripts\\InventoryManager.cs",
-              "ToolTip": "C:\\Users\\s2513006\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\InventoryManager.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\InventoryManager.cs",
               "RelativeToolTip": "Scripts\\InventoryManager.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAIwBkAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAowBkAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-18T03:24:51.55Z",
               "EditorCaption": ""
@@ -44,24 +44,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Randomizer.cs",
-              "DocumentMoniker": "C:\\Users\\s2513006\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Randomizer.cs",
-              "RelativeDocumentMoniker": "Scripts\\Randomizer.cs",
-              "ToolTip": "C:\\Users\\s2513006\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Randomizer.cs",
-              "RelativeToolTip": "Scripts\\Randomizer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "DieRoller.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\DieRoller.cs",
+              "RelativeDocumentMoniker": "Scripts\\DieRoller.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\DieRoller.cs",
+              "RelativeToolTip": "Scripts\\DieRoller.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T22:20:06.074Z"
+              "WhenOpened": "2025-09-15T22:20:06.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\s2513006\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Scripts\\GameManager.cs",
-              "ToolTip": "C:\\Users\\s2513006\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\GameManager.cs",
               "RelativeToolTip": "Scripts\\GameManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAgwI0AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-11T03:53:35.518Z",
               "EditorCaption": ""
@@ -70,9 +71,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\s2513006\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\s2513006\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Program.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
