@@ -9,6 +9,7 @@ namespace DiceGame
         {
             // make the game manager and start the game
             GameManager Manager = new GameManager();
+            Manager.Intro();
             Manager.Play();
         }
     }

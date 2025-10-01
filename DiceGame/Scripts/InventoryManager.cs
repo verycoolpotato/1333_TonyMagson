@@ -7,25 +7,38 @@
        public List<int> _playerOneInventory = new List<int>();
        public List<int> _playerTwoInventory = new List<int>();
 
-        // Add new die to game dice
+        /// <summary>
+        /// Add new die to game dice
+        /// </summary>
+        /// <param name="die"></param>
         public void AddDieToGame(int die)
         {
             GameDice.Add(die); 
         }
 
-        // Reset game dice
+        /// <summary>
+        /// Reset game dice
+        /// </summary>
         public void ClearGameDice()
         {
             GameDice = new List<int>(); 
         }
 
-        // Set player inventories to game dice
+        /// <summary>
+        /// Set player inventories to game dice
+        /// </summary>
         public void SetDefaultInventory()
         {
             _playerOneInventory = new List<int>(GameDice);
             _playerTwoInventory = new List<int>(GameDice);
         }
 
+        /// <summary>
+        /// Removes a die from the specified inventory
+        /// </summary>
+        /// <param name="DieToRemove"></param>
+        /// <param name="inventory"></param>
+        /// <returns></returns>
         public List<int> RemoveDie(int DieToRemove, List<int> inventory)
         {
             if (inventory.Contains(DieToRemove))
@@ -36,6 +49,10 @@
             Console.WriteLine("You dont have this die");
             return inventory;
         }
+        /// <summary>
+        /// Gets player input and returns the chosen die
+        /// </summary>
+        /// <returns></returns>
         public int PlayerChooseDie()
         {
             Console.WriteLine("\n");
@@ -66,6 +83,9 @@
 
 
         }
+        /// <summary>
+        /// Adds dice to GameDice based on input
+        /// </summary>
         public void DiceSetup()
         {
             Console.WriteLine("Enter a die to add to the game");
