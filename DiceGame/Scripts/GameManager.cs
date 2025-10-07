@@ -13,6 +13,7 @@ namespace DiceGame.Scripts
         //References to essential systems
         private DieRoller _roller = new DieRoller();
         private InventoryManager _inventory = new InventoryManager();
+        private WorldManager _worldManager = new WorldManager();
 
         /// <summary>
         /// Introduce the game on program start
@@ -30,12 +31,19 @@ namespace DiceGame.Scripts
         /// </summary>
         public void Play()
         {
+          _worldManager.BuildWorld();
+            _worldManager.BuildWorld();
+            _worldManager.DisplayWorld();
+
+        }
+        private void DiceGame()
+        {
             //Fills the player inventories with dice
             _inventory.SetDefaultInventory();
 
             //Play the game
             GameLoop();
-            
+
             // Show total scores
             Console.WriteLine($"\n===Total Scores===:");
             Console.WriteLine(_playerScores.Max());
@@ -44,13 +52,12 @@ namespace DiceGame.Scripts
             int gamewinnerIndex = Array.IndexOf(_playerScores, gameWinner);
 
             Console.WriteLine($"{_playerNames[gamewinnerIndex]} is the Winner with {gameWinner} points");
-          
+
             Console.WriteLine();
 
             //Check if the player would like to try again
             PlayAgain();
         }
-
        /// <summary>
        /// Check if the player wants to play again
        /// </summary>
@@ -226,13 +233,7 @@ namespace DiceGame.Scripts
        private void GameStartText()
        {
             // Intro
-            Console.Write("██╗  ██╗███████╗██╗     ██╗      ██████╗" +
-                     " \r\n██║  ██║██╔════╝██║     ██║     ██╔═══██╗" +
-                      "\r\n███████║█████╗  ██║     ██║     ██║   ██║" +
-                      "\r\n██╔══██║██╔══╝  ██║     ██║     ██║   ██║" +
-                      "\r\n██║  ██║███████╗███████╗███████╗╚██████╔╝" +
-                      "\r\n╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝ " +
-                      "\r\n");
+            
             Console.WriteLine("Welcome to Tony's DiceThing");
             Console.WriteLine("\n");
             Console.WriteLine("                ======HOW TO PLAY======");

@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\worldmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\worldmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,12 +23,16 @@
       "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\dieroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\inventorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\inventorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\monsterroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\monsterroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\treasureroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\treasureroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\inventorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\inventorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +42,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "WorldManager.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\WorldManager.cs",
+              "RelativeDocumentMoniker": "Scripts\\WorldManager.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\WorldManager.cs",
+              "RelativeToolTip": "Scripts\\WorldManager.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwC4AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T21:23:23.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MonsterRoom.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\MonsterRoom.cs",
+              "RelativeDocumentMoniker": "Scripts\\MonsterRoom.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\MonsterRoom.cs",
+              "RelativeToolTip": "Scripts\\MonsterRoom.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T21:20:16.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TreasureRoom.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\TreasureRoom.cs",
+              "RelativeDocumentMoniker": "Scripts\\TreasureRoom.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\TreasureRoom.cs",
+              "RelativeToolTip": "Scripts\\TreasureRoom.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T21:07:24.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Room.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Room.cs",
+              "RelativeDocumentMoniker": "Scripts\\Room.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Room.cs",
+              "RelativeToolTip": "Scripts\\Room.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T20:43:00.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "InventoryManager.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\InventoryManager.cs",
               "RelativeDocumentMoniker": "Scripts\\InventoryManager.cs",
@@ -43,39 +111,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "DieRoller.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\DieRoller.cs",
               "RelativeDocumentMoniker": "Scripts\\DieRoller.cs",
               "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\DieRoller.cs",
               "RelativeToolTip": "Scripts\\DieRoller.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-15T22:20:06.074Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Scripts\\GameManager.cs",
               "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\GameManager.cs",
               "RelativeToolTip": "Scripts\\GameManager.cs",
-              "ViewState": "AgIAAM8AAAAAAAAAAAAmwOoAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCIAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-11T03:53:35.518Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-11T03:52:51.32Z",
               "EditorCaption": ""
