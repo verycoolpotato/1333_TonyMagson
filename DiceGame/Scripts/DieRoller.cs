@@ -21,9 +21,7 @@ namespace DiceGame.Scripts
         {
             List<int> rolledDice = new List<int>();
 
-           
-
-            int result = random.Next(1, die + 1);
+            int result = random.Next(1, die);
 
             return result;
         }

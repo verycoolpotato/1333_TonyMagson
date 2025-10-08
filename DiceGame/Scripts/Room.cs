@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,8 +12,6 @@ namespace DiceGame.Scripts
   
     internal abstract class Room
     {
-        #region Connections
-
         [Flags]
         public enum Direction
         {
@@ -24,14 +23,22 @@ namespace DiceGame.Scripts
         }
         public Direction Connections { get; private set; } = Direction.None;
 
-       private Dictionary<string, Vector2> _possibleDirections = new Dictionary<string, Vector2>() {
-                { "North", new Vector2(0, 1)},
-                { "East", new Vector2(1, 0)},
-                {"South", new Vector2(0, -1)},
-                {"West", new Vector2(-1, 0)}
-            };
+        private WorldManager? _worldManager;
 
-        private WorldManager _worldManager = new WorldManager();
+        //has this room been visited
+        protected bool _visited;
+        
+
+        //Where is this room,located
+        private Vector2 _worldPos;
+        public Vector2 Coordinates { set { _worldPos = value; } }
+        #region Connections
+
+        public void SetWorld(WorldManager world)
+        {
+           
+              _worldManager = world;
+        }
 
         /// <summary>
         /// Add a connecting doorway
@@ -39,11 +46,13 @@ namespace DiceGame.Scripts
         /// <param name="direction"></param>
         private void AddConnection(Direction direction)
         {
+           
             Connections |= direction; 
+           
         }
 
         /// <summary>
-        /// check if can move in a direction
+        /// check what directions player can move from here
         /// </summary>
         /// <param name="direction"></param>
         /// <returns></returns>
@@ -52,21 +61,32 @@ namespace DiceGame.Scripts
             return (Connections & direction) != 0;
         }
 
-        //Where is this room,located
-        private Vector2 _worldPos;
-
-        public Vector2 Coordinates {set {  _worldPos = value; }}
+      
 
         /// <summary>
         /// Initialize doorways
         /// </summary>
         public void DoorBuilder()
         {
-            Room[,] rooms = _worldManager.Rooms();
-
             
+                Room[,] rooms = _worldManager!.Rooms();
 
-        
+
+            foreach (KeyValuePair<Direction, Vector2> offset in WorldManager.Instance!.PossibleDirections)
+            {
+                Vector2 roomPos = _worldPos + offset.Value;
+
+                int x = (int)roomPos.X;
+                int y = (int)roomPos.Y;
+
+                //check array bounds
+                if (x >= 0 && x < rooms.GetLength(0) && y >= 0 && y < rooms.GetLength(1) && rooms[x, y] != null)
+                {
+                    AddConnection(offset.Key);
+                }
+            }
+
+
         }
         #endregion
 
@@ -80,28 +100,39 @@ namespace DiceGame.Scripts
         /// <summary>
         /// What happens when using the search action
         /// </summary>
-        public abstract void OnRoomSearched();
+        public virtual void OnRoomSearched(Player? player = null)
+        {
 
+        }
+
+        protected virtual void EnteredEvent()
+        {
+            //Do nothing by default
+        } 
 
         #endregion
 
         #region Exploration
-        private bool _visited;
+        
+
+        public abstract string RoomIcon();
+       
 
         /// <summary>
         /// Describes the room and returns whether its been visited
         /// </summary>
         /// <returns></returns>
-        protected bool OnRoomEnter()
+        public void OnRoomEnter()
         {
             Console.WriteLine(RoomDescription());
-            return _visited;
+            EnteredEvent();
+          
         }
 
         /// <summary>
         /// Marks the room as visited and prints exit message
         /// </summary>
-        protected void OnRoomExit()
+        public void OnRoomExit()
         {
             Console.WriteLine("...Leaving Room");
             _visited = true;

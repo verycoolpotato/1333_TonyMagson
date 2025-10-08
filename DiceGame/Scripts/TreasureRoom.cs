@@ -11,13 +11,31 @@ namespace DiceGame.Scripts
         
         protected override string RoomDescription()
         {
+           
             //Text
             return "A dusty old room filled with junk, a small glimmer escapes from beneath one of the piles";
+
         }
 
-        public override void OnRoomSearched()
+
+
+        public override void OnRoomSearched(Player? player = null)
         {
-           //Access loot table script
+            if (_visited)
+            {
+                Console.WriteLine("The room is empty");
+                return;
+            }
+            Console.WriteLine();
+            player!.inventory.PickupItem("Sword");
+            _visited = true;
+        }
+        public override string RoomIcon()
+        {
+            if (!_visited)
+                return "[?]".PadRight(3);
+
+            return "[T]".PadRight(3);
         }
     }
 }

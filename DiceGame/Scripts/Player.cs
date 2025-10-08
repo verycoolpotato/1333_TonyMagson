@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+
+
+namespace DiceGame.Scripts
+{
+    internal class Player : Creature
+    {
+
+        private WorldManager? _worldManager;
+        public Room CurrentRoom { get; set; }
+
+        private Vector2 _currentLocation = new Vector2(0,0);
+
+       
+
+        public Player(int health = 10, string name = "Player") : base(health, name)
+        {
+            _worldManager = WorldManager.Instance;
+            CurrentRoom = _worldManager!.Rooms()[(int)_currentLocation.X, (int)_currentLocation.Y];
+            inventory = new Inventory() { };
+
+            inventory.PickupItem("Fists");
+            inventory.PickupItem("Sword");
+          
+        }
+
+        public void CheckInput()
+        {
+            while (true)
+            {
+                Console.WriteLine("Use arrow keys to move");
+                Console.WriteLine("Search [1]");
+                var key = Console.ReadKey(true); 
+
+                switch (key.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        Move(Room.Direction.West);
+                        break;
+                    case ConsoleKey.DownArrow:
+                        Move(Room.Direction.East);
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        Move(Room.Direction.South);
+                        break;
+                    case ConsoleKey.RightArrow:
+                        Move(Room.Direction.North);
+                        break;
+                    case ConsoleKey.D1:
+                        CurrentRoom.OnRoomSearched(this);
+                        break;
+                    default:
+                        continue;
+                }
+            }
+        }
+
+        public void Move(Room.Direction direction)
+        {
+            if (CurrentRoom.HasConnection(direction))
+            {
+                // Exit the current room first
+                CurrentRoom.OnRoomExit();
+
+                // Update player location
+                _currentLocation += _worldManager!.PossibleDirections[direction];
+                CurrentRoom = _worldManager.Rooms()[(int)_currentLocation.X, (int)_currentLocation.Y];
+
+                _worldManager.DisplayWorld(this);
+
+                // Enter the new room
+                CurrentRoom.OnRoomEnter();
+            }
+            else
+            {
+                Console.WriteLine("You can't move that way.");
+            }
+        }
+
+
+
+
+
+    }
+}
