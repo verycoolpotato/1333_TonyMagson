@@ -14,7 +14,7 @@ namespace DiceGame.Scripts
             { "Knife", 3 }
         };
 
-        // inveotyr stores name and value
+        // inventory stores name and value
         private List<(string Name, int Value)> _inventory = new List<(string, int)>();
 
         /// <summary>

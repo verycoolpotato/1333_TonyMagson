@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -20,10 +21,10 @@ namespace DiceGame.Scripts
             {Direction.West, new Vector2(-1, 0)}
         };
 
+
         private Room[,] _rooms = new Room [5, 5];
 
-        private Room[] _roomTypes = new Room[] {new TreasureRoom(), new MonsterRoom() };
-
+     
         public Room[,] Rooms() => _rooms;
 
         private Random random;
@@ -46,7 +47,7 @@ namespace DiceGame.Scripts
                 {
                     _rooms[row, column] = random.Next(0, 2) == 0 ? new TreasureRoom() : new MonsterRoom();
 
-                    
+                    _rooms[row, column].SetWorld(this);
                 }
             }
             BuildDoors();
@@ -59,9 +60,23 @@ namespace DiceGame.Scripts
                 Console.WriteLine();
                 for (int row = 0; row < _rooms.GetLength(0); row++)
                 {
-                    _rooms[row, column].SetWorld(this);
-                    
-                    
+                    //Assign room refs
+                    foreach (KeyValuePair<Direction, Room> i in _rooms[row, column].RoomRefs)
+                    {
+                 
+                        int x = row + (int)PossibleDirections[i.Key].X;
+                        x = Math.Clamp(x,0,_rooms.GetLength(0) -1);
+
+                        int y = column + (int)PossibleDirections[i.Key].Y;
+                        y = Math.Clamp(y, 0, _rooms.GetLength(1) -1);
+                        
+                            
+                            Room assignRoom = _rooms[x, y];
+
+                           _rooms[row, column].RoomRefs[i.Key] = assignRoom;
+                        
+                        
+                    }
 
                 }
             }
@@ -81,7 +96,7 @@ namespace DiceGame.Scripts
                 for (int col = 0; col < rooms.GetLength(1); col++)
                 {
                     var room = rooms[row, col];
-                    if (player.CurrentRoom == room)
+                    if (Player.CurrentRoom == room)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("[P]");

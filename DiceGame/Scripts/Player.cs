@@ -10,7 +10,7 @@ namespace DiceGame.Scripts
     {
 
         private WorldManager? _worldManager;
-        public Room CurrentRoom { get; set; }
+       internal static Room? CurrentRoom { get; set; }
 
         private Vector2 _currentLocation = new Vector2(0,0);
 
@@ -50,7 +50,7 @@ namespace DiceGame.Scripts
                         Move(Room.Direction.North);
                         break;
                     case ConsoleKey.D1:
-                        CurrentRoom.OnRoomSearched(this);
+                        CurrentRoom!.OnRoomSearched(this);
                         break;
                     default:
                         continue;
@@ -60,26 +60,26 @@ namespace DiceGame.Scripts
 
         public void Move(Room.Direction direction)
         {
-            /*
-            if (CurrentRoom.HasConnection(direction))
-            {
-                // Exit the current room first
-                CurrentRoom.OnRoomExit();
+            
 
-                // Update player location
-                _currentLocation += _worldManager!.PossibleDirections[direction];
-                CurrentRoom = _worldManager.Rooms()[(int)_currentLocation.X, (int)_currentLocation.Y];
+            if (CurrentRoom!.RoomRefs[direction] == null)
+                return;
 
-                _worldManager.DisplayWorld(this);
+            // Exit the current room first
+
+            CurrentRoom!.OnRoomExit();
+
+            CurrentRoom = CurrentRoom!.RoomRefs[direction];
+            
+               
+
+                _worldManager!.DisplayWorld(this);
 
                 // Enter the new room
                 CurrentRoom.OnRoomEnter();
-            }
-            else
-            {
-                Console.WriteLine("You can't move that way.");
-            }
-            */
+            
+          
+            
         }
 
 

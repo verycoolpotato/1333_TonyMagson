@@ -31,8 +31,8 @@ namespace DiceGame.Scripts
 
         private WorldManager? _worldManager;
 
-        //has this room been visited
-        protected bool _visited;
+        //has this room been visited?
+        protected bool _visited = false;
        
        
         #region Connections
@@ -86,6 +86,7 @@ namespace DiceGame.Scripts
         {
             if (_visited)
                 return;
+
             Console.WriteLine(RoomDescription());
             
             EnteredEvent();
