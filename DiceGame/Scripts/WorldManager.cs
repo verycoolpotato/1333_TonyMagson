@@ -46,7 +46,7 @@ namespace DiceGame.Scripts
                 {
                     _rooms[row, column] = random.Next(0, 2) == 0 ? new TreasureRoom() : new MonsterRoom();
 
-                    _rooms[row, column].Coordinates = new System.Numerics.Vector2 (row, column);
+                    
                 }
             }
             BuildDoors();
@@ -60,9 +60,16 @@ namespace DiceGame.Scripts
                 for (int row = 0; row < _rooms.GetLength(0); row++)
                 {
                     _rooms[row, column].SetWorld(this);
-                    _rooms[row, column].DoorBuilder();
+                    
+                    
+
                 }
             }
+        }
+
+        private void AssignRoomRefs(Room room)
+        {
+
         }
 
         public void DisplayWorld(Player player)

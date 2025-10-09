@@ -43,7 +43,7 @@ namespace DiceGame.Scripts
             _worldManager.DisplayWorld(_player);
            
             // Start player movement/input
-            _player.CheckInput();
+            //player.CheckInput();
         }
 
         public void Combat(Creature enemy)

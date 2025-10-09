@@ -3,91 +3,51 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DiceGame.Scripts
 {
   
     internal abstract class Room
     {
-        [Flags]
+        
         public enum Direction
         {
-            None = 0,
-            North = 1 << 0,  // 1
-            East = 1 << 1,  // 2
-            South = 1 << 2,  // 4
-            West = 1 << 3   // 8
+            None,
+            North,
+            East,
+            South,
+            West 
         }
-        public Direction Connections { get; private set; } = Direction.None;
+
+        public Dictionary<Direction,Room?> RoomRefs = new Dictionary<Direction, Room?>() { 
+            {Direction.North, null}, 
+            {Direction.East, null},
+            {Direction.South, null},
+            {Direction.West, null}
+        };
+
+        
 
         private WorldManager? _worldManager;
 
         //has this room been visited
         protected bool _visited;
-        
-
-        //Where is this room,located
-        private Vector2 _worldPos;
-        public Vector2 Coordinates { set { _worldPos = value; } }
+       
+       
         #region Connections
 
         public void SetWorld(WorldManager world)
         {
-           
               _worldManager = world;
         }
 
-        /// <summary>
-        /// Add a connecting doorway
-        /// </summary>
-        /// <param name="direction"></param>
-        private void AddConnection(Direction direction)
-        {
-           
-            Connections |= direction; 
-           
-        }
-
-        /// <summary>
-        /// check what directions player can move from here
-        /// </summary>
-        /// <param name="direction"></param>
-        /// <returns></returns>
-        public bool HasConnection(Direction direction)
-        {
-            return (Connections & direction) != 0;
-        }
+       
+        
 
       
 
-        /// <summary>
-        /// Initialize doorways
-        /// </summary>
-        public void DoorBuilder()
-        {
-            
-                Room[,] rooms = _worldManager!.Rooms();
-
-
-            foreach (KeyValuePair<Direction, Vector2> offset in WorldManager.Instance!.PossibleDirections)
-            {
-                Vector2 roomPos = _worldPos + offset.Value;
-
-                int x = (int)roomPos.X;
-                int y = (int)roomPos.Y;
-
-                //check array bounds
-                if (x >= 0 && x < rooms.GetLength(0) && y >= 0 && y < rooms.GetLength(1) && rooms[x, y] != null)
-                {
-                    AddConnection(offset.Key);
-                }
-            }
-
-
-        }
+       
         #endregion
 
         #region AbstractClasses

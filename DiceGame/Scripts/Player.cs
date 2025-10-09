@@ -60,6 +60,7 @@ namespace DiceGame.Scripts
 
         public void Move(Room.Direction direction)
         {
+            /*
             if (CurrentRoom.HasConnection(direction))
             {
                 // Exit the current room first
@@ -78,6 +79,7 @@ namespace DiceGame.Scripts
             {
                 Console.WriteLine("You can't move that way.");
             }
+            */
         }
 
 
