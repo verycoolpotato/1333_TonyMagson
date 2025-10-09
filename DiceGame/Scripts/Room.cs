@@ -124,7 +124,10 @@ namespace DiceGame.Scripts
         /// <returns></returns>
         public void OnRoomEnter()
         {
+            if (_visited)
+                return;
             Console.WriteLine(RoomDescription());
+            
             EnteredEvent();
           
         }

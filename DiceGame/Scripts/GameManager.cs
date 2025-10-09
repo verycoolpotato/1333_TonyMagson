@@ -86,13 +86,21 @@ namespace DiceGame.Scripts
                 Console.WriteLine($"{enemy.GetType().Name} has {enemy.Health} health");
                 Thread.Sleep(1000);
             }
-
+            if(_player.Health <= 0)
+            {
+                GameOver();
+            }
             Console.WriteLine("Battle Over!");
-         
+            _worldManager.DisplayWorld( _player );
         }
 
 
-
+        private void GameOver()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Another traveller swallowed by the dungeon");
+            Environment.Exit(0);
+        }
 
     }
 }
