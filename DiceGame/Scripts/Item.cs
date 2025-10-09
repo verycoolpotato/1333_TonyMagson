@@ -10,30 +10,36 @@ namespace DiceGame.Scripts
     {
         internal string? Name;
 
-        /// <summary>
-        /// What shows up when an item is inspected
-        /// </summary>
-        internal virtual void Inspect()
+        //what can this item do 
+        protected enum Commands
         {
-            DescribeItem();
+            Use = 1,
+            Inspect = 2,
+           
         }
 
-        internal int GetInput()
-        {
-            string? key = Console.ReadKey().ToString();
-            int.TryParse(key, out int Selection);
+        private Commands _command;
 
-            return Selection;
+        /// <summary>
+        /// tie commands to inputs then ask player for choice
+        /// </summary>
+        internal virtual void ListCommands()
+        {
+           
+            
         }
 
         /// <summary>
         /// What happens when this is used
         /// </summary>
-        internal abstract void Use();
+        protected abstract void Use();
 
-
+        /// <summary>
+        /// Item description/tooltip
+        /// </summary>
         protected abstract void DescribeItem();
 
+        
         
 
     }

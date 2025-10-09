@@ -15,7 +15,7 @@ namespace DiceGame.Scripts
         };
 
         // inventory stores name and value
-        private List<(string Name, int Value)> _inventory = new List<(string, int)>();
+        private List<(string Name, int Value)> _inventory = new List<(string, int)>(9);
 
         /// <summary>
         /// Adds a weapon to the player's inventory
@@ -52,8 +52,6 @@ namespace DiceGame.Scripts
                 _inventory.Remove(item);
                 return true;
             }
-
-            Console.WriteLine("You don't have a weapon with that value.");
             return false;
         }
 

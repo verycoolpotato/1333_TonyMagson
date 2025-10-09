@@ -60,8 +60,6 @@ namespace DiceGame.Scripts
 
         public void Move(Room.Direction direction)
         {
-            
-
             if (CurrentRoom!.RoomRefs[direction] == null)
                 return;
 
@@ -71,20 +69,11 @@ namespace DiceGame.Scripts
 
             CurrentRoom = CurrentRoom!.RoomRefs[direction];
             
-               
+              
+            _worldManager!.DisplayWorld(this);
 
-                _worldManager!.DisplayWorld(this);
-
-                // Enter the new room
-                CurrentRoom.OnRoomEnter();
-            
-          
-            
+            // Enter the new room
+            CurrentRoom!.OnRoomEnter();
         }
-
-
-
-
-
     }
 }
