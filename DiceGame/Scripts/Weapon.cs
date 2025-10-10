@@ -41,13 +41,12 @@ namespace DiceGame
             
         }
 
-        
-
+   
         internal override void Use()
-        {
+        {Console.WriteLine(_durability.ToString());
             if (_durability != Durability.None)
             {
-                if (_random.Next(0, 3) == 0)
+                if (_random.Next(0, 1) == 0)
                 {
                     _durability = (Durability)((int)_durability + 1);
 

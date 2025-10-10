@@ -10,7 +10,7 @@ namespace DiceGame.Scripts
     {
         internal static List<KeyValuePair<Item, float>> CommonTreasureDrop = new List<KeyValuePair<Item, float>>()
         {
-            new KeyValuePair<Item, float>(new Shortsword("Fools Shortsword", Weapon.Durability.Fragile), 0.5f),
+            new KeyValuePair<Item, float>(new Shortsword("Fools Shortsword", (Weapon.Durability)1), 0.5f),
             new KeyValuePair<Item, float>(new Shortsword("Knights Shortsword", Weapon.Durability.Sturdy), 0.5f),
             new KeyValuePair<Item, float>(new Shortsword("Travelers Shortsword", Weapon.Durability.Weathered), 0.5f),
             new KeyValuePair<Item, float>(new Shortsword("Broken Shortsword", Weapon.Durability.Shattered), 0.5f),

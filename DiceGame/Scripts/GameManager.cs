@@ -68,6 +68,7 @@ namespace DiceGame.Scripts
                 Item playerItem = player.inventory.PlayerChooseItem();
 
                 int playerDamage = 0;
+
                 if(playerItem is Weapon weapon)
                 {
                     Range dmg = weapon.Damage;

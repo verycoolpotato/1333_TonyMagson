@@ -13,6 +13,7 @@ namespace DiceGame.Scripts
         public Shortsword(string WeaponName, Durability durability) : base(WeaponName,durability) 
         {
             Damage = _thisDamage;
+            
         }
        
 
