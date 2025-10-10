@@ -6,31 +6,33 @@ namespace DiceGame.Scripts
 {
     internal class Inventory
     {
-        // Predefined weapons with their die values
-        public Dictionary<string, int> Weapons = new Dictionary<string, int>()
-        {
-            {"Fists", 2},
-            { "Sword", 5 },
-            { "Knife", 3 }
-        };
+        
 
         // inventory stores name and value
-        private List<(string Name, int Value)> _inventory = new List<(string, int)>(9);
+        private List<Item?> _inventory = new List<Item?>(9);
 
         /// <summary>
-        /// Adds a weapon to the player's inventory
+        /// Adds an item to the player's inventory
         /// </summary>
-        public void PickupItem(string weapon)
+        public void PickupItem(Item GrabbedItem, bool AnnouncePickup)
         {
-            if (Weapons.TryGetValue(weapon, out int value))
+            foreach (Item? item in _inventory)
             {
-                _inventory.Add((weapon, value));
-                Console.WriteLine($"{weapon} added to your inventory!");
+                if (item == null)
+                {
+                    if (AnnouncePickup)
+                    {
+                        Console.WriteLine($"Picked Up {GrabbedItem}");
+                    }
+                    _inventory.Add(GrabbedItem);
+                    return;
+                }
+                   
             }
-            else
-            {
-                Console.WriteLine($"Weapon '{weapon}' does not exist.");
-            }
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Your inventory is full, free up some space");
+            Console.ResetColor();
         }
 
         /// <summary>
@@ -38,71 +40,72 @@ namespace DiceGame.Scripts
         /// </summary>
         public void ClearInventory()
         {
-            _inventory.Clear();
-        }
-
-        /// <summary>
-        /// Removes a weapon by value
-        /// </summary>
-        public bool RemoveItem(int value)
-        {
-            var item = _inventory.FirstOrDefault(i => i.Value == value);
-            if (item != default)
+            for (int i = 0; i < _inventory.Count; i++)
             {
-                _inventory.Remove(item);
-                return true;
+                _inventory[i] = null;
             }
-            return false;
+                
         }
 
         /// <summary>
-        /// Prompts the player to choose a weapon from their inventory
+        /// Removes an item by index
         /// </summary>
-        public int PlayerChooseWeapon()
+        public void RemoveItemindex(int index)
         {
-            
-            while (true)
+            _inventory[index] = null;
+        }
+
+        /// <summary>
+        /// Removes an item by type
+        /// </summary>
+        public void RemoveItemType(Item item)
+        {
+            if (_inventory.Contains(item))
             {
-                Console.WriteLine("\nYour weapons:");
-                foreach (var weapon in _inventory)
-                {
-                    Console.WriteLine($"{weapon}");
-                }
+               int index = _inventory.IndexOf(item);
+                _inventory[index] = null;
+            }
+                
+        }
 
-                Console.Write("Select a weapon: ");
-                string? input = Console.ReadLine();
+        /// <summary>
+        /// Prompts the player to choose an item from their inventory
+        /// </summary>
+        public int PlayerChooseItem()
+        {
+            Console.WriteLine("What will you do?");
 
-                if (int.TryParse(input, out int dieValue))
-                {
-                    var chosen = _inventory.FirstOrDefault(w => w.Value == dieValue);
-                    if (chosen != default)
-                    {
-                        if(chosen.Name != "Fists")
-                        {
-                            _inventory.Remove(chosen);
-                        }
-                       
-                        Console.WriteLine($"You selected {chosen.Name} ({chosen.Value})!");
-                        return chosen.Value;
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have a weapon with that value.");
-                    }
-                }
+            ViewInventory();
+           while (true)
+            {
+               int choice = InputHelper.GetIntInput();
+            }
+        }
+
+        public void ViewInventory(int? health = null, int? MaxHealth = null)
+        {
+            Console.WriteLine("\n");
+            if(health != null && MaxHealth != null)
+            {
+                Console.WriteLine($"{health}/{MaxHealth} Health");
+            }
+            
+            Console.WriteLine();
+            for (int i = 0; i < _inventory.Count; i++)
+            {
+                if (_inventory[i] != null)
+                    Console.WriteLine($"[{i.ToString()}] {_inventory[i]}");
                 else
-                {
-                    Console.WriteLine("Invalid input. Enter the numeric value of a weapon.");
-                }
+                    Console.WriteLine($"[{i}] Empty");
             }
         }
 
         /// <summary>
         /// Returns the inventory
         /// </summary>
-        public List<(string Name, int Value)> GetInventory()
+        public List<Item?> GetInventory()
         {
-            return new List<(string Name, int Value)>(_inventory);
+            return _inventory;
         }
     }
 }

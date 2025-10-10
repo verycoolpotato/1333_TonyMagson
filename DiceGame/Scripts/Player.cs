@@ -14,7 +14,7 @@ namespace DiceGame.Scripts
 
         private Vector2 _currentLocation = new Vector2(0,0);
 
-       
+        private int _maxHealth;
 
         public Player(int health = 10, string name = "Player") : base(health, name)
         {
@@ -22,8 +22,10 @@ namespace DiceGame.Scripts
             CurrentRoom = _worldManager!.Rooms()[(int)_currentLocation.X, (int)_currentLocation.Y];
             inventory = new Inventory() { };
 
-            inventory.PickupItem("Fists");
-            inventory.PickupItem("Sword");
+            _maxHealth = health;
+
+            inventory.PickupItem(new Fists(),false);
+            inventory.PickupItem(new Shortsword("Common Shortsword", Weapon.Durability.Weathered), true);
           
         }
 
@@ -32,7 +34,9 @@ namespace DiceGame.Scripts
             while (true)
             {
                 Console.WriteLine("Use arrow keys to move");
-                Console.WriteLine("Search [1]");
+                Console.WriteLine("");
+                Console.WriteLine("[1] Search");
+                Console.WriteLine("[2] Inventory");
                 var key = Console.ReadKey(true); 
 
                 switch (key.Key)
@@ -51,6 +55,9 @@ namespace DiceGame.Scripts
                         break;
                     case ConsoleKey.D1:
                         CurrentRoom!.OnRoomSearched(this);
+                        break;
+                    case ConsoleKey.D2:
+                        inventory.ViewInventory(Health,_maxHealth);
                         break;
                     default:
                         continue;

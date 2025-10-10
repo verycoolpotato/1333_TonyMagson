@@ -27,7 +27,7 @@ namespace DiceGame.Scripts
                 return;
             }
             Console.WriteLine();
-            player!.inventory.PickupItem("Sword");
+            player!.inventory.PickupItem(new Shortsword("Common Shortsword",Weapon.Durability.Weathered),true);
             _visited = true;
         }
         public override string RoomIcon()

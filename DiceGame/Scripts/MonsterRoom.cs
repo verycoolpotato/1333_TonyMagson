@@ -26,9 +26,9 @@ namespace DiceGame.Scripts
 
         protected override void EnteredEvent()
         {
-            Goblin goblin = new Goblin();
+            Enemy enemy = new Enemy(6,"Goblin",new Range(3,7));
 
-            GameManager.Instance!.Combat(goblin);
+            GameManager.Instance!.Combat(enemy);
         }
 
         public override string RoomIcon()

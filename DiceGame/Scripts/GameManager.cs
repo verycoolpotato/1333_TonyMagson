@@ -61,11 +61,11 @@ namespace DiceGame.Scripts
                 // Player chooses a weapon
 
 
-                int playerRoll = player.inventory.PlayerChooseWeapon();
+                int playerRoll = player.inventory.PlayerChooseItem();
                 playerRoll = _roller.Roll(playerRoll);
 
                 // Enemy rolls a random weapon/die
-                int enemyRoll = _roller.PickRandomDie(enemy.inventory.Weapons.Values.ToArray());
+                int enemyRoll = _roller.PickRandomDie(enemy..ToArray());
                 enemyRoll = _roller.Roll(enemyRoll);
                 Console.WriteLine($"{player.Name} rolled {playerRoll}");
                 Console.WriteLine($"{enemy.GetType().Name} rolled {enemyRoll}");
