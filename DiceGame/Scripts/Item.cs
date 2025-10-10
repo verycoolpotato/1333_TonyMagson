@@ -32,7 +32,7 @@ namespace DiceGame.Scripts
         /// <summary>
         /// What happens when this is used
         /// </summary>
-        protected abstract void Use();
+        internal abstract void Use();
 
         /// <summary>
         /// Item description/tooltip

@@ -15,7 +15,7 @@ namespace DiceGame
             Sturdy = 1,
             Weathered = 2,
             Fragile = 3,
-            Shattered =4,
+            Shattered = 4,
             
         }
 
@@ -41,13 +41,21 @@ namespace DiceGame
             
         }
 
-        protected override void Use()
+        
+
+        internal override void Use()
         {
-            if (_durability == Durability.None)
-                return;
-            if(_random.Next(0,3) == 0)
+            if (_durability != Durability.None)
             {
-                _durability = (Durability)((int)_durability + 1);
+                if (_random.Next(0, 3) == 0)
+                {
+                    _durability = (Durability)((int)_durability + 1);
+
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"{Name} was damaged");
+                    Console.ResetColor();
+                    
+                }
             }
         }
 

@@ -35,7 +35,7 @@ namespace DiceGame.Scripts
             Console.ResetColor();
             
             int damage = _random.Next(_baseDamage.Start.Value,_baseDamage.End.Value);
-            damage *= (int)weight;
+            damage += (int)weight;
             return damage;
 
         }

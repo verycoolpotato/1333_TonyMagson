@@ -46,41 +46,57 @@ namespace DiceGame.Scripts
             _player.CheckInput();
         }
 
-        public void Combat(Creature enemy)
+        public void Combat(Enemy enemy)
         {
-            GameLoop(_player, enemy);
+            CombatLoop(_player, enemy);
         }
-
-        private void GameLoop(Player player, Creature enemy)
+        /// <summary>
+        /// Main fight loop
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="enemy"></param>
+        private void CombatLoop(Player player, Enemy enemy)
         {
-            int playerScore = 0;
-            int enemyScore = 0;
-
+            
+            
             while (player.Health > 0 && enemy.Health > 0)
             {
-                // Player chooses a weapon
+                int enemyDamage = enemy.NextAttack();
+                Console.WriteLine();
 
+                // Player chooses an item
+                Item playerItem = player.inventory.PlayerChooseItem();
 
-                int playerRoll = player.inventory.PlayerChooseItem();
-                playerRoll = _roller.Roll(playerRoll);
-
-                // Enemy rolls a random weapon/die
-                int enemyRoll = _roller.PickRandomDie(enemy..ToArray());
-                enemyRoll = _roller.Roll(enemyRoll);
-                Console.WriteLine($"{player.Name} rolled {playerRoll}");
-                Console.WriteLine($"{enemy.GetType().Name} rolled {enemyRoll}");
-
-                // Determine winner
-                if (playerRoll >= enemyRoll)
+                int playerDamage = 0;
+                if(playerItem is Weapon weapon)
                 {
-                    Console.WriteLine($"{player.Name} hits {enemy.GetType().Name} for {playerRoll}\n");
-                    enemy.Health -= playerRoll;
+                    Range dmg = weapon.Damage;
+                    weapon.Use();
+                   playerDamage = _roller.Roll(dmg.Start.Value, dmg.End.Value);
                 }
-                else
+                //add logic for consumables, call use
+
+                Console.WriteLine($"{player.Name} rolled a {playerDamage}");
+                Console.WriteLine($"{enemy.Name} rolled a {enemyDamage}");
+                Console.WriteLine();
+                //decide roll winner
+                switch (playerDamage > enemyDamage)
                 {
-                    Console.WriteLine($"{enemy.GetType().Name} hits {player.Name} for {enemyRoll}\n");
-                    player.Health -= enemyRoll;
+                    case true:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($"{player.Name} hit {enemy.Name} for {playerDamage} damage");
+                        Console.ResetColor();
+                        enemy.Health -= playerDamage;
+                    break;
+                    case false:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"{enemy.Name} hit {player.Name} for {enemyDamage} damage");
+                        Console.ResetColor();
+                        player.Health -= enemyDamage;
+                    break;
                 }
+                
+                Console.WriteLine();
 
                 Console.WriteLine($"{player.Name} has {player.Health} health");
                 Console.WriteLine($"{enemy.GetType().Name} has {enemy.Health} health");

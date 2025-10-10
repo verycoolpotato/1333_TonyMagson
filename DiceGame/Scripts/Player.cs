@@ -16,7 +16,7 @@ namespace DiceGame.Scripts
 
         private int _maxHealth;
 
-        public Player(int health = 10, string name = "Player") : base(health, name)
+        public Player(int health = 30, string name = "Player") : base(health, name)
         {
             _worldManager = WorldManager.Instance;
             CurrentRoom = _worldManager!.Rooms()[(int)_currentLocation.X, (int)_currentLocation.Y];
@@ -25,7 +25,7 @@ namespace DiceGame.Scripts
             _maxHealth = health;
 
             inventory.PickupItem(new Fists(),false);
-            inventory.PickupItem(new Shortsword("Common Shortsword", Weapon.Durability.Weathered), true);
+            inventory.PickupItem(new Shortsword("Common Shortsword", Weapon.Durability.Weathered),false);
           
         }
 

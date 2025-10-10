@@ -6,10 +6,11 @@ namespace DiceGame.Scripts
 {
     internal class Inventory
     {
-        
+
 
         // inventory stores name and value
-        private List<Item?> _inventory = new List<Item?>(9);
+        private List<Item?> _inventory = new List<Item?>(9) {null,null,null,null, null, null, null, null, null};
+
 
         /// <summary>
         /// Adds an item to the player's inventory
@@ -22,9 +23,10 @@ namespace DiceGame.Scripts
                 {
                     if (AnnouncePickup)
                     {
-                        Console.WriteLine($"Picked Up {GrabbedItem}");
+                        Console.WriteLine($"Picked Up {GrabbedItem.Name}");
                     }
-                    _inventory.Add(GrabbedItem);
+                   int index = _inventory.IndexOf(item);
+                    _inventory[index] = GrabbedItem;
                     return;
                 }
                    
@@ -71,14 +73,18 @@ namespace DiceGame.Scripts
         /// <summary>
         /// Prompts the player to choose an item from their inventory
         /// </summary>
-        public int PlayerChooseItem()
+        public Item PlayerChooseItem()
         {
+            int choice = 0;
             Console.WriteLine("What will you do?");
 
             ViewInventory();
-           while (true)
+            while (true)
             {
-               int choice = InputHelper.GetIntInput();
+                choice = InputHelper.GetIntInput();
+                if (_inventory[choice] != null)
+                    return _inventory[choice]!;
+
             }
         }
 
@@ -94,9 +100,9 @@ namespace DiceGame.Scripts
             for (int i = 0; i < _inventory.Count; i++)
             {
                 if (_inventory[i] != null)
-                    Console.WriteLine($"[{i.ToString()}] {_inventory[i]}");
+                    Console.WriteLine($"[{i + 1}] {_inventory[i].Name}");
                 else
-                    Console.WriteLine($"[{i}] Empty");
+                    Console.WriteLine($"[{i + 1}] Empty");
             }
         }
 

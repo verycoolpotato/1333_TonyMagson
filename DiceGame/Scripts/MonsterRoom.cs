@@ -26,7 +26,7 @@ namespace DiceGame.Scripts
 
         protected override void EnteredEvent()
         {
-            Enemy enemy = new Enemy(6,"Goblin",new Range(3,7));
+            Enemy enemy = new Enemy(6,"Goblin",new Range(0,5));
 
             GameManager.Instance!.Combat(enemy);
         }
