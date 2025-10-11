@@ -15,6 +15,8 @@ namespace DiceGame.Scripts.Rooms
             new KeyValuePair<Func<Room>, float>(() => new TreasureRoom(), 0.2f),
             new KeyValuePair<Func<Room>, float>(() => new MonsterRoom(), 0.3f),
             new KeyValuePair<Func<Room>, float>(() => new EmptyRoom(), 0.5f),
+            new KeyValuePair<Func<Room>, float>(() => new ForgeRoom(), 0.1f),
+          
         };
 
 

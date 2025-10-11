@@ -23,18 +23,19 @@ namespace DiceGame.Scripts.Rooms
 
         public override void OnRoomSearched(Player? player = null)
         {
-            if (_visited)
+            if (_empty)
             {
                 Console.WriteLine("The room is empty");
                 return;
             }
             Console.WriteLine();
             player!.inventory.PickupItem(LootTables.GetRandomItem(LootTables.CommonTreasureDrop),true);
-            _visited = true;
+            _empty = true;
+            _revealed = true;
         }
         public override string RoomIcon()
         {
-            if (!_visited)
+            if (!_revealed)
                 return "[?]".PadRight(3);
 
             return "[T]".PadRight(3);

@@ -13,11 +13,13 @@ namespace DiceGame.Scripts.Rooms
     {
         protected override string RoomDescription()
         {
+            _revealed = true;
             return "A dimly lit, mostly empty room";
+
         }
         public override void OnRoomSearched(Player? player = null)
         {
-            if(_visited)
+            if(_empty)
             {
                 Console.WriteLine("The room is empty");
                 return;
@@ -33,7 +35,8 @@ namespace DiceGame.Scripts.Rooms
                 Console.WriteLine("You searched but found nothing");
             }
 
-                _visited = true;
+                
+            _empty = true;
             
         }
 
@@ -41,7 +44,7 @@ namespace DiceGame.Scripts.Rooms
 
         public override string RoomIcon()
         {
-            if (!_visited)
+            if (!_revealed)
                 return "[?]".PadRight(3);
             return "[ ]".PadRight(3);
         }

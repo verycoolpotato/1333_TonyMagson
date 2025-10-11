@@ -33,10 +33,10 @@ namespace DiceGame.Scripts.Rooms
 
         private WorldManager? _worldManager;
 
-        //has this room been visited?
+        //state of this room?
+        protected bool _revealed = false;
         protected bool _visited = false;
-       
-       
+        protected bool _empty = false;
         #region Connections
 
         public void SetWorld(WorldManager world)
@@ -86,8 +86,7 @@ namespace DiceGame.Scripts.Rooms
         /// <returns></returns>
         public void OnRoomEnter()
         {
-            if (_visited)
-                return;
+            
 
             Console.WriteLine(RoomDescription());
             
@@ -101,7 +100,7 @@ namespace DiceGame.Scripts.Rooms
         public void OnRoomExit()
         {
             Console.WriteLine("...Leaving Room");
-            _visited = true;
+           
         }
         #endregion
 

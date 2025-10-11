@@ -12,30 +12,39 @@ namespace DiceGame.Scripts.Rooms
     {
         protected override string RoomDescription()
         {
-            return "A sillouetted figure blocks your path";
+            if (!_empty)
+                return "A sillouetted figure blocks your path";
+            else
+                return "A creature lays dead on the floor";
         }
         public override void OnRoomSearched(Player? player = null)
         {
-            if(_visited)
+            if(_empty)
             {
                 Console.WriteLine("The room is empty");
                 return;
             }
-            Console.WriteLine("As you search in the dark you are attacked by a greedy goblin!");
-            _visited = true;
+            Console.WriteLine("As you search in the dark you are attacked!");
+            
             EnteredEvent();
         }
 
         protected override void EnteredEvent()
         {
-            Enemy enemy = new Enemy(6,"Goblin",new Range(0,5));
+            if (!_empty)
+            {
+                Enemy enemy = new Enemy(6, "Goblin", new Range(0, 5));
 
-            GameManager.Instance!.Combat(enemy);
+                GameManager.Instance!.Combat(enemy);
+            }
+            _empty = true;
+            _revealed = true;
+            
         }
 
         public override string RoomIcon()
         {
-            if (!_visited)
+            if (!_revealed)
                 return "[?]".PadRight(3);
             return "[M]".PadRight(3);
         }
