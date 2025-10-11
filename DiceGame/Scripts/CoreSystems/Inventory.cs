@@ -1,4 +1,5 @@
 ﻿using DiceGame.Scripts.HelperClasses;
+using DiceGame.Scripts.Items.Consumables;
 using DiceGame.Scripts.Items.Weapons;
 using System;
 using System.Collections.Generic;
@@ -90,6 +91,14 @@ namespace DiceGame.Scripts.CoreSystems
                     Console.Write($"{weapon.DieRange().Start.Value}-{weapon.DieRange().End.Value} Damage");
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write($" : {weapon.WeaponDurability}");
+                    Console.ResetColor();
+                    Console.WriteLine();
+                }
+                else if(_inventory[i] is Consumable consumable)
+                {
+                    Console.Write($"[{i + 1}] {consumable.Name} : ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write($"{consumable.DieRange().Start.Value}-{consumable.DieRange().End.Value} Roll");
                     Console.ResetColor();
                     Console.WriteLine();
                 }

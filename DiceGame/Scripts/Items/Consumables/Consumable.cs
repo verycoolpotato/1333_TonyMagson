@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DiceGame.Scripts.Items.Consumables
 {
@@ -12,7 +13,10 @@ namespace DiceGame.Scripts.Items.Consumables
         public Consumable(RarityTiers rarity, Range die) : base (die)
         {
           Rarity = rarity;
-        
+         
+
+            CommandActions["Use"] = Use;
+
         }
 
 

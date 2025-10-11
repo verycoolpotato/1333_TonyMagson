@@ -1,5 +1,6 @@
 ﻿using DiceGame.Scripts.Creatures;
 using DiceGame.Scripts.HelperClasses;
+using DiceGame.Scripts.Items.Consumables;
 using DiceGame.Scripts.Items.Weapons;
 using System;
 using System.Linq;
@@ -64,17 +65,27 @@ namespace DiceGame.Scripts.CoreSystems
                 Console.WriteLine();
 
                 // Player chooses an item
-                Item playerItem = player.inventory.CombatInventory();
+                
 
                 int playerDamage = 0;
 
-                if(playerItem is Weapon weapon)
+                while (true)
                 {
-                    Range dmg = weapon.DieRange();
-                    weapon.Use();
-                   playerDamage = _roller.Roll(dmg.Start.Value, dmg.End.Value);
+                    Item playerItem = player.inventory.CombatInventory();
+                    if (playerItem is Weapon weapon)
+                    {
+                        Range dmg = weapon.DieRange();
+                        weapon.Use();
+                        playerDamage = _roller.Roll(dmg.Start.Value, dmg.End.Value);
+                        break;
+                    }
+                    else if (playerItem is Consumable consumable)
+                    {
+                        consumable.Use();
+                        
+                    }
                 }
-                //add logic for consumables, call use
+               
 
                 Console.WriteLine($"{player.Name} rolled a {playerDamage}");
                 Console.WriteLine($"{enemy.Name} rolled a {enemyDamage}");

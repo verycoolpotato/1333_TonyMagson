@@ -47,7 +47,8 @@ namespace DiceGame.Scripts.CoreSystems
             {
                 for (int column = 0; column < _rooms.GetLength(1); column++)
                 {
-                    _rooms[row, column] = random.Next(0, 2) == 0 ? new TreasureRoom() : new MonsterRoom();
+                    
+                    _rooms[row, column] = RoomTables.GetRandomRoom(RoomTables.StandardFloorLayout);
 
                     _rooms[row, column].SetWorld(this);
                 }

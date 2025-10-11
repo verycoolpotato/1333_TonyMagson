@@ -37,7 +37,7 @@ internal abstract class Item
         if (InputHelper.GetIntInput() == 2)
         {
             Console.WriteLine($"{Name} was dropped.");
-            //drop logic
+            
         }
     }
 
