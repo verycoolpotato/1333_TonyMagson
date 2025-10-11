@@ -1,10 +1,12 @@
-﻿using System;
+﻿using DiceGame.Scripts.Creatures;
+using DiceGame.Scripts.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiceGame.Scripts
+namespace DiceGame.Scripts.Rooms
 {
     internal class TreasureRoom : Room
     {

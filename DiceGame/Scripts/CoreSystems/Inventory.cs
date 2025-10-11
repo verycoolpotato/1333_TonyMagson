@@ -1,8 +1,10 @@
-﻿using System;
+﻿using DiceGame.Scripts.HelperClasses;
+using DiceGame.Scripts.Items.Weapons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DiceGame.Scripts
+namespace DiceGame.Scripts.CoreSystems
 {
     internal class Inventory
     {

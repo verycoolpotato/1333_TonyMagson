@@ -1,6 +1,4 @@
-﻿
-
-namespace DiceGame.Scripts
+﻿namespace DiceGame.Scripts.HelperClasses
 {
     public class DieRoller
     {

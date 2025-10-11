@@ -1,9 +1,12 @@
-﻿using System;
+﻿using DiceGame.Scripts.Creatures;
+using DiceGame.Scripts.HelperClasses;
+using DiceGame.Scripts.Items.Weapons;
+using System;
 using System.Linq;
 using System.Numerics;
 using System.Threading;
 
-namespace DiceGame.Scripts
+namespace DiceGame.Scripts.CoreSystems
 {
     internal class GameManager
     {
@@ -23,10 +26,6 @@ namespace DiceGame.Scripts
         public GameManager()
         {
             Instance = this;
-
-          
-
-           
         }
 
         public void Intro()

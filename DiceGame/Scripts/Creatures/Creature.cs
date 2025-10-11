@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DiceGame.Scripts.CoreSystems;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiceGame.Scripts
+namespace DiceGame.Scripts.Creatures
 {
     internal abstract class Creature
     {

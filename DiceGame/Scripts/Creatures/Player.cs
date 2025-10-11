@@ -1,10 +1,14 @@
-﻿using System;
+﻿using DiceGame.Scripts.CoreSystems;
+using DiceGame.Scripts.Items;
+using DiceGame.Scripts.Items.Weapons;
+using DiceGame.Scripts.Rooms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
 
-namespace DiceGame.Scripts
+namespace DiceGame.Scripts.Creatures
 {
     internal class Player : Creature
     {

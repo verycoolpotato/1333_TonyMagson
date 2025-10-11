@@ -1,4 +1,4 @@
-﻿using DiceGame.Scripts;
+﻿using DiceGame.Scripts.CoreSystems;
 
 namespace DiceGame
 {

@@ -1,4 +1,4 @@
-﻿using DiceGame.Scripts;
+﻿using DiceGame.Scripts.HelperClasses;
 
 internal abstract class Item
 {

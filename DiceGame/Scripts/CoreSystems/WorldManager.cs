@@ -1,13 +1,15 @@
-﻿using System;
+﻿using DiceGame.Scripts.Creatures;
+using DiceGame.Scripts.Rooms;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using static DiceGame.Scripts.Room;
+using static DiceGame.Scripts.Rooms.Room;
 
 
-namespace DiceGame.Scripts
+namespace DiceGame.Scripts.CoreSystems
 {
     internal class WorldManager
     {
@@ -53,6 +55,9 @@ namespace DiceGame.Scripts
             BuildDoors();
         }
 
+        /// <summary>
+        /// Creates connections between rooms
+        /// </summary>
         private void BuildDoors()
         {
             for (int column = 0; column < _rooms.GetLength(1); column++)

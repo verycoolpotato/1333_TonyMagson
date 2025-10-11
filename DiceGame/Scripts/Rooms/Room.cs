@@ -1,11 +1,13 @@
-﻿using System;
+﻿using DiceGame.Scripts.CoreSystems;
+using DiceGame.Scripts.Creatures;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 
 
-namespace DiceGame.Scripts
+namespace DiceGame.Scripts.Rooms
 {
   
     internal abstract class Room

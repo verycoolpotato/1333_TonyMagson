@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static DiceGame.Weapon;
+using static DiceGame.Scripts.Items.Weapons.Weapon;
 
-namespace DiceGame.Scripts
+namespace DiceGame.Scripts.Items.Weapons
 {
     internal class Fists : Weapon
     {
