@@ -9,7 +9,7 @@ namespace DiceGame.Scripts.Items.Consumables
     internal abstract class Consumable : Item
     {
         
-        public Consumable(RarityTiers rarity) 
+        public Consumable(RarityTiers rarity, Range die) : base (die)
         {
           Rarity = rarity;
         

@@ -8,8 +8,6 @@ namespace DiceGame.Scripts.CoreSystems
 {
     internal class Inventory
     {
-
-
         // inventory stores name and value
         private List<Item?> _inventory = new List<Item?>(9) {null,null,null,null, null, null, null, null, null};
 
@@ -75,7 +73,7 @@ namespace DiceGame.Scripts.CoreSystems
         /// <summary>
         /// Prompts the player to choose an item from their inventory
         /// </summary>
-        public Item PlayerChooseItem()
+        public Item CombatInventory()
         {
             int choice = 0;
             Console.WriteLine("What will you do?");
@@ -89,7 +87,7 @@ namespace DiceGame.Scripts.CoreSystems
                     //display combat options in style
                     Console.Write($"[{i + 1}] {weapon.Name} : ");
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write($"{weapon.Damage.Start.Value}-{weapon.Damage.End.Value} Damage");
+                    Console.Write($"{weapon.DieRange().Start.Value}-{weapon.DieRange().End.Value} Damage");
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write($" : {weapon.WeaponDurability}");
                     Console.ResetColor();
@@ -115,7 +113,9 @@ namespace DiceGame.Scripts.CoreSystems
         {
             
             Console.WriteLine("\n");
-            if(health != null && MaxHealth != null)
+            Console.WriteLine($"====INVENTORY=============");
+            Console.WriteLine();
+            if (health != null && MaxHealth != null)
             {
                 Console.WriteLine($"{health}/{MaxHealth} Health");
             }
@@ -132,24 +132,16 @@ namespace DiceGame.Scripts.CoreSystems
             //Allow interacting with inventory
             Console.WriteLine();
             Console.WriteLine("[0] Back");
-
+            Console.WriteLine();
+            Console.WriteLine("==========================");
             int choice = InputHelper.GetIntInput();
             if (choice == 0)
                 return;
 
             choice--;
             if (_inventory[choice] != null)
-            {
-               
-                //Standard inventory viewing
                 _inventory[choice]!.ShowDetails();
-                
-
-            }
-
-
-
-
+              
         }
 
         /// <summary>

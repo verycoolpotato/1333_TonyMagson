@@ -2,7 +2,7 @@
 {
     public class DieRoller
     {
-        private Random random;
+        protected Random random;
 
         public DieRoller()
         {

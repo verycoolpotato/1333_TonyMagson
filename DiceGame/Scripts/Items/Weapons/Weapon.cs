@@ -20,7 +20,7 @@ namespace DiceGame.Scripts.Items.Weapons
         }
 
 
-        public Range Damage {  get; protected set; }
+        
 
         /// <summary>
         /// Describe weapon specific attributes
@@ -29,7 +29,7 @@ namespace DiceGame.Scripts.Items.Weapons
         {
             Console.WriteLine();
             Console.WriteLine("Weapon");
-            Console.WriteLine($"Damage: {Damage.Start.Value}-{Damage.End.Value}");
+            Console.WriteLine($"Damage: {Die.Start.Value}-{Die.End.Value}");
             Console.WriteLine($"Durability: {WeaponDurability}");
             Console.WriteLine();
         }
@@ -37,7 +37,7 @@ namespace DiceGame.Scripts.Items.Weapons
 
         internal Durability WeaponDurability;
         private Random _random;
-        internal Weapon(string WeaponName, Durability durability)
+        internal Weapon(string WeaponName, Durability durability, Range die) : base(die)
         {
             CommandActions["Rename"] = Rename;
 

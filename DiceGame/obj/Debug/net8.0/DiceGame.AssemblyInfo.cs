@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DiceGame")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39870007c39743c48f6f12e80945b9a9c97dbf86")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+026138dc31fd9cbe4a92f298908708ab0b8a07d8")]
 [assembly: System.Reflection.AssemblyProductAttribute("DiceGame")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DiceGame")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

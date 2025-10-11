@@ -4,6 +4,14 @@ internal abstract class Item
 {
     internal string? Name;
 
+    protected Range Die;
+
+
+    internal Item(Range die)
+    {
+        Die = die;
+    }
+
     //allows looping through methods
     protected Dictionary<string, Action> CommandActions = new();
 
@@ -16,7 +24,10 @@ internal abstract class Item
     internal abstract void Use();
     protected abstract void DescribeItem();
 
-    
+    internal Range DieRange()
+    {
+        return Die;
+    }
 
     protected virtual void Drop()
     {

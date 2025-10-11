@@ -9,10 +9,10 @@ namespace DiceGame.Scripts.Items.Weapons
     internal class Shortsword : Weapon
     {
 
-        private Range _thisDamage = new Range(3,7);
-        public Shortsword(string WeaponName, Durability durability) : base(WeaponName,durability) 
+        
+        public Shortsword(string WeaponName, Durability durability) : base(WeaponName,durability, new Range(3, 7)) 
         {
-            Damage = _thisDamage;
+            
             
         }
        

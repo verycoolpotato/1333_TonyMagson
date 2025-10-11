@@ -18,7 +18,7 @@ namespace DiceGame.Scripts.Creatures
 
         private Vector2 _currentLocation = new Vector2(0,0);
 
-        private int _maxHealth;
+        
 
         public Player(int health = 30, string name = "Player") : base(health, name)
         {
@@ -26,7 +26,7 @@ namespace DiceGame.Scripts.Creatures
             CurrentRoom = _worldManager!.Rooms()[(int)_currentLocation.X, (int)_currentLocation.Y];
             inventory = new Inventory() { };
 
-            _maxHealth = health;
+            
 
             inventory.PickupItem(new Fists(),false);
             inventory.PickupItem(new Shortsword($"{Name}'s Shortsword", Weapon.Durability.Weathered), false);

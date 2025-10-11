@@ -10,10 +10,10 @@ namespace DiceGame.Scripts.Items.Weapons
     internal class Fists : Weapon
     {
 
-        private Range _thisDamage = new Range(1,4);
-        public Fists() : base("Fist",0) 
+       
+        public Fists() : base("Fist",0, new Range(1, 4)) 
         {
-            Damage = _thisDamage;
+            
             CommandActions.Clear();
         }
 
@@ -29,7 +29,7 @@ namespace DiceGame.Scripts.Items.Weapons
             Console.ResetColor();
 
             Console.WriteLine();
-            Console.WriteLine($"Damage: {Damage.Start.Value}-{Damage.End.Value}");
+            Console.WriteLine($"Damage: {Die.Start.Value}-{Die.End.Value}");
            
             Console.WriteLine();
         }

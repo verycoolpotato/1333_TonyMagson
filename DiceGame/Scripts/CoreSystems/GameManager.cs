@@ -21,14 +21,14 @@ namespace DiceGame.Scripts.CoreSystems
 
        
 
-        private Player _player;
+        internal Player GamePlayer;
 
-        public GameManager()
+        internal GameManager()
         {
             Instance = this;
         }
 
-        public void Intro()
+        internal void Intro()
         {
             Console.WriteLine("Enter the dungeon... If you dare!\n");
         }
@@ -38,16 +38,16 @@ namespace DiceGame.Scripts.CoreSystems
             // Build the dungeon
             _worldManager.BuildWorld();
             // Create player
-            _player = new Player();
-            _worldManager.DisplayWorld(_player);
+            GamePlayer = new Player();
+            _worldManager.DisplayWorld(GamePlayer);
            
             // Start player movement/input
-            _player.CheckInput();
+            GamePlayer.CheckInput();
         }
 
         public void Combat(Enemy enemy)
         {
-            CombatLoop(_player, enemy);
+            CombatLoop(GamePlayer, enemy);
         }
         /// <summary>
         /// Main fight loop
@@ -64,13 +64,13 @@ namespace DiceGame.Scripts.CoreSystems
                 Console.WriteLine();
 
                 // Player chooses an item
-                Item playerItem = player.inventory.PlayerChooseItem();
+                Item playerItem = player.inventory.CombatInventory();
 
                 int playerDamage = 0;
 
                 if(playerItem is Weapon weapon)
                 {
-                    Range dmg = weapon.Damage;
+                    Range dmg = weapon.DieRange();
                     weapon.Use();
                    playerDamage = _roller.Roll(dmg.Start.Value, dmg.End.Value);
                 }
@@ -102,12 +102,12 @@ namespace DiceGame.Scripts.CoreSystems
                 Console.WriteLine($"{enemy.GetType().Name} has {enemy.Health} health");
                 Thread.Sleep(1000);
             }
-            if(_player.Health <= 0)
+            if(GamePlayer.Health <= 0)
             {
                 GameOver();
             }
             Console.WriteLine("Battle Over!");
-            _worldManager.DisplayWorld( _player );
+            _worldManager.DisplayWorld( GamePlayer );
         }
 
 
