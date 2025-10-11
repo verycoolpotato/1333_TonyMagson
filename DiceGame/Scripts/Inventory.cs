@@ -78,7 +78,23 @@ namespace DiceGame.Scripts
             int choice = 0;
             Console.WriteLine("What will you do?");
 
-            ViewInventory();
+            for (int i = 0; i < _inventory.Count; i++)
+            {
+                Item? item = _inventory[i];
+
+                if(_inventory[i] is Weapon weapon)
+                {
+                    //display combat options in style
+                    Console.Write($"[{i + 1}] {weapon.Name} : ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write($"{weapon.Damage.Start.Value}-{weapon.Damage.End.Value} Damage");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write($" : {weapon.WeaponDurability}");
+                    Console.ResetColor();
+                    Console.WriteLine();
+                }
+                
+            }
             while (true)
             {
                  choice = InputHelper.GetIntInput() - 1;
@@ -88,9 +104,14 @@ namespace DiceGame.Scripts
 
             }
         }
-
+        /// <summary>
+        /// Displays the inventory in full and allows inspecting items, optional ability to pass health values
+        /// </summary>
+        /// <param name="health"></param>
+        /// <param name="MaxHealth"></param>
         public void ViewInventory(int? health = null, int? MaxHealth = null)
         {
+            
             Console.WriteLine("\n");
             if(health != null && MaxHealth != null)
             {
@@ -110,12 +131,22 @@ namespace DiceGame.Scripts
             Console.WriteLine();
             Console.WriteLine("[0] Back");
 
-            int choice = InputHelper.GetIntInput() -1;
+            int choice = InputHelper.GetIntInput();
+            if (choice == 0)
+                return;
 
+            choice--;
             if (_inventory[choice] != null)
             {
+               
+                //Standard inventory viewing
                 _inventory[choice]!.ShowDetails();
+                
+
             }
+
+
+
 
         }
 

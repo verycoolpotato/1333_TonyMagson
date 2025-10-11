@@ -9,8 +9,7 @@ internal abstract class Item
 
     protected virtual void DefaultCommands()
     {
-        CommandActions["Use"] = Use;
-       
+     
         CommandActions["Drop"] = Drop;
     }
 
@@ -50,9 +49,6 @@ internal abstract class Item
         {
             CommandActions[keys[choice]]?.Invoke();
         }
-        else
-        {
-            Console.WriteLine("Invalid choice.");
-        }
+        
     }
 }

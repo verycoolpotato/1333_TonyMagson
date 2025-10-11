@@ -85,13 +85,13 @@ namespace DiceGame.Scripts
                 {
                     case true:
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"{player.Name} hit {enemy.Name} for {playerDamage} damage");
+                        Console.WriteLine($"|SUCCESS| {player.Name} hit {enemy.Name} for {playerDamage} damage");
                         Console.ResetColor();
                         enemy.Health -= playerDamage;
                     break;
                     case false:
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"{enemy.Name} hit {player.Name} for {enemyDamage} damage");
+                        Console.WriteLine($"|FAILURE| {enemy.Name} hit {player.Name} for {enemyDamage} damage");
                         Console.ResetColor();
                         player.Health -= enemyDamage;
                     break;
