@@ -10,11 +10,20 @@ namespace DiceGame.Scripts
     {
         internal static int GetIntInput()
         {
-            string? key = Console.ReadKey().ToString();
-            int.TryParse(key, out int Selection);
+            while (true)
+            {
+                var keyInfo = Console.ReadKey(true);
+                char keyChar = keyInfo.KeyChar;
 
-            return Selection;
+                if (char.IsDigit(keyChar))
+                {
+                    return keyChar - '0'; 
+                }
+
+                
+            }
         }
+
 
         internal static string GetStringInput()
         {

@@ -81,8 +81,9 @@ namespace DiceGame.Scripts
             ViewInventory();
             while (true)
             {
-                choice = InputHelper.GetIntInput();
-                if (_inventory[choice] != null)
+                 choice = InputHelper.GetIntInput() - 1;
+
+                if (choice >= 0 && choice < _inventory.Count && _inventory[choice] != null)
                     return _inventory[choice]!;
 
             }
@@ -104,6 +105,18 @@ namespace DiceGame.Scripts
                 else
                     Console.WriteLine($"[{i + 1}] Empty");
             }
+
+            //Allow interacting with inventory
+            Console.WriteLine();
+            Console.WriteLine("[0] Back");
+
+            int choice = InputHelper.GetIntInput() -1;
+
+            if (_inventory[choice] != null)
+            {
+                _inventory[choice]!.ShowDetails();
+            }
+
         }
 
         /// <summary>

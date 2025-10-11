@@ -25,7 +25,7 @@ namespace DiceGame.Scripts
             _maxHealth = health;
 
             inventory.PickupItem(new Fists(),false);
-            inventory.PickupItem(new Shortsword($"{Name}'s Shortsword", (Weapon.Durability)1), false);
+            inventory.PickupItem(new Shortsword($"{Name}'s Shortsword", Weapon.Durability.Weathered), false);
           
         }
 

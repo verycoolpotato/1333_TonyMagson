@@ -10,7 +10,7 @@ namespace DiceGame.Scripts
     {
 
         private Range _thisDamage = new Range(1,4);
-        public Fists() : base("Fist",Durability.None) 
+        public Fists() : base("Fist",0) 
         {
             Damage = _thisDamage;
         }

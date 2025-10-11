@@ -23,6 +23,8 @@ namespace DiceGame.Scripts
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("A common weapon, forged by any blacksmith. Despite its simplicity, it demands respect");
             Console.ResetColor();
+
+            base.DescribeItem();
         }
 
 

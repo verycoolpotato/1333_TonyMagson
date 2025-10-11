@@ -22,43 +22,56 @@ namespace DiceGame
 
         public Range Damage {  get; protected set; }
 
-        
-        
+
+        protected override void DescribeItem()
+        {
+            Console.WriteLine();
+            Console.WriteLine($"Damage: {Damage.Start.Value}-{Damage.End.Value}");
+            Console.WriteLine($"Durability: {_durability}");
+            Console.WriteLine();
+        }
+
+
         private Durability _durability;
         private Random _random;
         internal Weapon(string WeaponName, Durability durability)
         {
+            CommandActions["Rename"] = Rename;
+
             Name = WeaponName;
             _durability = durability;
             _random = new Random();
-            
         }
 
-        protected void Rename()
+        
+
+        protected virtual void Rename()
         {
-            Console.WriteLine($"Enter a new name for your {GetType().Name}");
+            Console.WriteLine($"Enter a new name for your {Name}:");
             Name = InputHelper.GetStringInput();
-            
         }
-
-   
         internal override void Use()
-        {Console.WriteLine(_durability.ToString());
+        {
+            Console.WriteLine(_durability.ToString());
+
             if (_durability != Durability.None)
             {
-                if (_random.Next(0, 1) == 0)
+                if (_random.Next(0, 2) == 0) // 50% chance
                 {
-                    _durability = (Durability)((int)_durability + 1);
-
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{Name} was damaged");
-                    Console.ResetColor();
-                    
+                    if (_durability < Durability.Shattered)
+                    {
+                        _durability = (Durability)((int)_durability + 1);
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"{Name} was damaged");
+                        Console.ResetColor();
+                        Console.WriteLine();
+                    }
                 }
             }
         }
 
-        
+
 
     }
 }

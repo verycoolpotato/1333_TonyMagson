@@ -1,46 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DiceGame.Scripts;
 
-namespace DiceGame.Scripts
+internal abstract class Item
 {
-    internal abstract class Item
+    internal string? Name;
+
+    //allows looping through methods
+    protected Dictionary<string, Action> CommandActions = new();
+
+    protected virtual void DefaultCommands()
     {
-        internal string? Name;
+        CommandActions["Use"] = Use;
+       
+        CommandActions["Drop"] = Drop;
+    }
 
-        //what can this item do 
-        protected enum Commands
+    internal abstract void Use();
+    protected abstract void DescribeItem();
+
+    
+
+    protected virtual void Drop()
+    {
+        Console.WriteLine($"Are you sure you want to get rid of {Name}?");
+        Console.WriteLine("[1] Keep");
+        Console.WriteLine("[2] Drop");
+        if (InputHelper.GetIntInput() == 2)
         {
-            Use = 1,
-            Inspect = 2,
-           
+            Console.WriteLine($"{Name} was dropped.");
+            //drop logic
+        }
+    }
+
+    internal void ShowDetails()
+    {
+       DefaultCommands();
+
+        Console.WriteLine($"\n--- {Name} ---");
+        DescribeItem();
+
+        // Display options
+        var keys = CommandActions.Keys.ToList();
+        for (int i = 0; i < keys.Count; i++)
+        {
+            Console.WriteLine($"[{i + 1}] {keys[i]}");
         }
 
-        private Commands _command;
-
-        /// <summary>
-        /// tie commands to inputs then ask player for choice
-        /// </summary>
-        internal virtual void ListCommands()
+        int choice = InputHelper.GetIntInput() - 1;
+        if (choice >= 0 && choice < keys.Count)
         {
-           
-            
+            CommandActions[keys[choice]]?.Invoke();
         }
-
-        /// <summary>
-        /// What happens when this is used
-        /// </summary>
-        internal abstract void Use();
-
-        /// <summary>
-        /// Item description/tooltip
-        /// </summary>
-        protected abstract void DescribeItem();
-
-        
-        
-
+        else
+        {
+            Console.WriteLine("Invalid choice.");
+        }
     }
 }

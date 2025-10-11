@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\shortsword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\shortsword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\inputhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\inputhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,16 +35,20 @@
       "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\loottables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\fists.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\fists.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\worldmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\worldmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\shortsword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\shortsword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\monsterroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\treasureroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\treasureroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -53,22 +69,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\dieroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\dieroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\inputhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\inputhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|c:\\users\\arand\\documents\\github\\1333_tonymagson\\dicegame\\scripts\\fists.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5EF9D34-F286-450E-83BD-CBA3D08A5F9F}|DiceGame.csproj|solutionrelative:scripts\\fists.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,61 +78,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Shortsword.cs",
-              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Shortsword.cs",
-              "RelativeDocumentMoniker": "Scripts\\Shortsword.cs",
-              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Shortsword.cs",
-              "RelativeToolTip": "Scripts\\Shortsword.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T00:37:38.51Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Item.cs",
-              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Item.cs",
-              "RelativeDocumentMoniker": "Scripts\\Item.cs",
-              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Item.cs",
-              "RelativeToolTip": "Scripts\\Item.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAewCIAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T01:45:26.649Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Creature.cs",
-              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Creature.cs",
-              "RelativeDocumentMoniker": "Scripts\\Creature.cs",
-              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Creature.cs",
-              "RelativeToolTip": "Scripts\\Creature.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T18:34:54.094Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Player.cs",
-              "RelativeDocumentMoniker": "Scripts\\Player.cs",
-              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Player.cs",
-              "RelativeToolTip": "Scripts\\Player.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T18:30:06.856Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "MonsterRoom.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\MonsterRoom.cs",
               "RelativeDocumentMoniker": "Scripts\\MonsterRoom.cs",
@@ -140,12 +90,11 @@
               "RelativeToolTip": "Scripts\\MonsterRoom.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T21:20:16.436Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-06T21:20:16.436Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "TreasureRoom.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\TreasureRoom.cs",
               "RelativeDocumentMoniker": "Scripts\\TreasureRoom.cs",
@@ -153,12 +102,11 @@
               "RelativeToolTip": "Scripts\\TreasureRoom.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAewB0AAABnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T21:07:24.177Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-06T21:07:24.177Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "Room.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Room.cs",
               "RelativeDocumentMoniker": "Scripts\\Room.cs",
@@ -171,46 +119,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Inventory.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Inventory.cs",
               "RelativeDocumentMoniker": "Scripts\\Inventory.cs",
               "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Inventory.cs",
               "RelativeToolTip": "Scripts\\Inventory.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAuwGYAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAmwHEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-18T03:24:51.55Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Scripts\\GameManager.cs",
               "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\GameManager.cs",
               "RelativeToolTip": "Scripts\\GameManager.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAAwGYAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAwGAAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-11T03:53:35.518Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Weapon.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Weapon.cs",
               "RelativeDocumentMoniker": "Scripts\\Weapon.cs",
               "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Weapon.cs",
               "RelativeToolTip": "Scripts\\Weapon.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAmwCgAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAmwB0AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-10T04:55:58.892Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "WorldManager.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\WorldManager.cs",
               "RelativeDocumentMoniker": "Scripts\\WorldManager.cs",
@@ -223,32 +171,98 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "LootTables.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\LootTables.cs",
               "RelativeDocumentMoniker": "Scripts\\LootTables.cs",
               "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\LootTables.cs",
               "RelativeToolTip": "Scripts\\LootTables.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-10T04:22:47.073Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 8,
+              "Title": "Fists.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Fists.cs",
+              "RelativeDocumentMoniker": "Scripts\\Fists.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Fists.cs",
+              "RelativeToolTip": "Scripts\\Fists.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T00:55:12.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "InputHelper.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\InputHelper.cs",
               "RelativeDocumentMoniker": "Scripts\\InputHelper.cs",
               "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\InputHelper.cs",
               "RelativeToolTip": "Scripts\\InputHelper.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwBYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T19:26:23.588Z"
+              "WhenOpened": "2025-10-09T19:26:23.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Shortsword.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Shortsword.cs",
+              "RelativeDocumentMoniker": "Scripts\\Shortsword.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Shortsword.cs",
+              "RelativeToolTip": "Scripts\\Shortsword.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAmwBoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T00:37:38.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Item.cs",
+              "RelativeDocumentMoniker": "Scripts\\Item.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Item.cs",
+              "RelativeToolTip": "Scripts\\Item.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwB0AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T01:45:26.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Player.cs",
+              "RelativeDocumentMoniker": "Scripts\\Player.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Player.cs",
+              "RelativeToolTip": "Scripts\\Player.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAIwBsAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T18:30:06.856Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "Creature.cs",
+              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Creature.cs",
+              "RelativeDocumentMoniker": "Scripts\\Creature.cs",
+              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Creature.cs",
+              "RelativeToolTip": "Scripts\\Creature.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T18:34:54.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Enemy.cs",
               "RelativeDocumentMoniker": "Scripts\\Enemy.cs",
@@ -260,7 +274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -272,7 +286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "DieRoller.cs",
               "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\DieRoller.cs",
               "RelativeDocumentMoniker": "Scripts\\DieRoller.cs",
@@ -281,18 +295,6 @@
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-15T22:20:06.074Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Fists.cs",
-              "DocumentMoniker": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Fists.cs",
-              "RelativeDocumentMoniker": "Scripts\\Fists.cs",
-              "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\Fists.cs",
-              "RelativeToolTip": "Scripts\\Fists.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T00:55:12.376Z"
             }
           ]
         }
