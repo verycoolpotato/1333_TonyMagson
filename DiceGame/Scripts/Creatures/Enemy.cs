@@ -20,8 +20,8 @@ namespace DiceGame.Scripts.Creatures
         private enum AttackWeight
         {
             Light =1,
-            Medium = 2,
-            Heavy = 3,
+            Medium = 3,
+            Heavy = 5,
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace DiceGame.Scripts.Creatures
 
             int damage = _random.Next(modifiedDamage.Start.Value,modifiedDamage.End.Value);
 
-            Console.WriteLine();
+            
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"{Name} prepares a {weight} Attack ({modifiedDamage.Start.Value}-{modifiedDamage.End.Value})");
             Console.ResetColor();

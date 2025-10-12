@@ -15,6 +15,7 @@ namespace DiceGame.Scripts.Items.Weapons
         {
             ActionPointCost = 1;
             CommandActions.Clear();
+            Style = WeaponStyles.Fists;
         }
 
         protected override void DefaultCommands()

@@ -20,7 +20,7 @@ namespace DiceGame.Scripts.Items.Weapons
         }
         protected enum WeaponStyles 
         {
-            None = 0,
+            Fists = 0,
             OneHanded = 1,
             TwoHanded = 2,
             Heavy = 3
@@ -33,13 +33,13 @@ namespace DiceGame.Scripts.Items.Weapons
         protected override void DescribeItem()
         {
             Console.WriteLine();
-            Console.WriteLine("Weapon");
+            Console.WriteLine($"Weapon - {Style}");
             Console.WriteLine($"Damage: {Die.Start.Value}-{Die.End.Value}");
             Console.WriteLine($"Durability: {WeaponDurability}");
             Console.WriteLine();
         }
-        
 
+        protected WeaponStyles Style;
         private Range _defaultDamage;
         internal Durability WeaponDurability;
         private Random _random;

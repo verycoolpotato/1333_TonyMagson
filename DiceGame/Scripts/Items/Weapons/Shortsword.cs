@@ -13,7 +13,7 @@ namespace DiceGame.Scripts.Items.Weapons
         public Shortsword(string WeaponName, Durability durability, Range DamageRange) : base(WeaponName,durability, DamageRange) 
         {
             ActionPointCost = 1;
-            
+            Style = WeaponStyles.OneHanded;
         }
        
 

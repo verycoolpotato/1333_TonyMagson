@@ -92,7 +92,7 @@ namespace DiceGame.Scripts.CoreSystems
                     Console.Write($"{($"{weapon.DieRange().Start.Value}-{weapon.DieRange().End.Value} Damage"),-12}");
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write($"{($"{weapon.WeaponDurability}"),-13}");
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.Write($"{($"{weapon.ActionPointCost} Cost"),-10}");
                     Console.ResetColor();
                     Console.WriteLine();
@@ -100,16 +100,19 @@ namespace DiceGame.Scripts.CoreSystems
                 else if (item is Consumable consumable)
                 {
                     Console.Write($"[{i + 1}] ");
-                    Console.Write($"{consumable.Name,-25} ");
+                    Console.Write($"{consumable.Name,-22} "); // match weapon name width
 
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write($"{($"{consumable.DieRange().Start.Value}-{consumable.DieRange().End.Value} Roll"),-18}");
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write($"{($"{consumable.DieRange().Start.Value}-{consumable.DieRange().End.Value} Roll"),-12}");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write($"{("Consumable"),-13}"); // aligns where durability goes
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.Write($"{($"{consumable.ActionPointCost} Cost"),-10}");
                     Console.ResetColor();
                     Console.WriteLine();
                 }
             }
+
 
             while (true)
             {

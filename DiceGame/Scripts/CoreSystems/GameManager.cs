@@ -61,13 +61,14 @@ namespace DiceGame.Scripts.CoreSystems
         /// <param name="enemy"></param>
         private void CombatLoop(Player player, Enemy enemy)
         {
-            
-            
+         
             while (player.Health > 0 && enemy.Health > 0)
             {
                 int PlayerActions = 3;
 
-                //Announce enemy intent
+                //Announce enemy intent and health
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"{enemy.Name} has {enemy.Health} Health");
                 int enemyDamage = enemy.NextAttack();
                 Console.WriteLine();
 
@@ -76,20 +77,43 @@ namespace DiceGame.Scripts.CoreSystems
 
                 while (PlayerActions > 0)
                 {
+                   
+                    
                     Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"{player.Health} Health");
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine($"You have {PlayerActions} Action points left this turn");
+                    Console.ResetColor();
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                   
+                    Console.WriteLine($"{playerDamage} Total Damage");
                     Console.ResetColor();
                     Console.WriteLine();
                     Item playerItem = player.inventory.CombatInventory();
 
                     if(playerItem.ActionPointCost <= PlayerActions)
                     {
+                       
                         if (playerItem is Weapon weapon)
                         {
                             Range dmg = weapon.DieRange();
                             weapon.Use();
-                            playerDamage += _roller.Roll(dmg.Start.Value, dmg.End.Value);
+                            int roll = _roller.Roll(dmg.Start.Value, dmg.End.Value);
+                            playerDamage += roll;
 
+
+                            Console.WriteLine();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            string rollString = $"Rolled a {roll}";
+                            for (int i = 0; i < rollString.Length; i++)
+                            {
+                                Console.Write(rollString[i]);
+                                Thread.Sleep(50);
+                            }
+                            Thread.Sleep(1000);
+                            Console.WriteLine();
+                            Console.ResetColor();
                         }
                         else if (playerItem is Consumable consumable)
                         {
@@ -98,9 +122,7 @@ namespace DiceGame.Scripts.CoreSystems
 
                         PlayerActions -= playerItem.ActionPointCost;
                     }
-                    Console.ForegroundColor= ConsoleColor.Red;
-                    Console.WriteLine($"{playerDamage} Total Damage");
-                    Console.WriteLine();
+                    
                 }
                
 

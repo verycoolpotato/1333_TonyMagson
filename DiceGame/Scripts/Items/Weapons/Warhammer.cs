@@ -6,23 +6,19 @@ using System.Threading.Tasks;
 
 namespace DiceGame.Scripts.Items.Weapons
 {
-    internal class Spear : Weapon
+    internal class Warhammer : Weapon
     {
-
-        
-        public Spear(string WeaponName, Durability durability, Range DamageRange) : base(WeaponName,durability, DamageRange) 
+        public Warhammer(string WeaponName, Durability durability, Range DamageRange) : base(WeaponName,durability, DamageRange) 
         {
-            ActionPointCost = 2;
-            Style = WeaponStyles.TwoHanded;
+            ActionPointCost = 3;
+            Style = WeaponStyles.Heavy;
             
         }
        
-
-
         protected override void DescribeItem()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Long and Sharp, great for keeping foes at bay");
+            Console.WriteLine("A hulking hammer, ideal for caving skulls");
             Console.ResetColor();
 
             base.DescribeItem();
