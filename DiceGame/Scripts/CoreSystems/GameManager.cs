@@ -31,7 +31,8 @@ namespace DiceGame.Scripts.CoreSystems
 
         internal void Intro()
         {
-            Console.WriteLine("Enter the dungeon... If you dare!\n");
+            Console.WriteLine("Welcome to Dungeon Smith!");
+            Console.WriteLine("Prepare to enter a deadly dungeon where you'll have to scavenge and create weapons to survive");
         }
 
         public void Play()

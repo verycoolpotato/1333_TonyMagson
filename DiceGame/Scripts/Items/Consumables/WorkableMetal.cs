@@ -1,4 +1,5 @@
 ﻿
+using DiceGame.Scripts.CoreSystems;
 using DiceGame.Scripts.Creatures;
 using DiceGame.Scripts.HelperClasses;
 using DiceGame.Scripts.Rooms;
@@ -28,10 +29,15 @@ namespace DiceGame.Scripts.Items.Consumables
             base.DescribeItem();
         }
 
+        /// <summary>
+        /// Forge menu
+        /// </summary>
         internal override void Use()
         {
             if(Player.CurrentRoom is ForgeRoom)
             {
+                Inventory inventory = GameManager.Instance!.GamePlayer.inventory;
+
                 Console.WriteLine();
                 Console.WriteLine($"Would you like to forge {Name} into a weapon?");
                 Console.WriteLine("[1] Forge");
@@ -58,18 +64,50 @@ namespace DiceGame.Scripts.Items.Consumables
                 Console.WriteLine("[3] Heavy");
 
                
-                
+                foreach (Item? item in inventory.GetInventory())
+                {
+                    if (item == null)
+                        break;
+                    else
+                    {
+                        Console.WriteLine("Not enough space to forge, get rid of something");
+                        return;
+                    }
+                }
                 while (true)
                 {
+                    
                     int inputType = InputHelper.GetIntInput();
+                    Item? forgedItem = null;
+                    Console.WriteLine("Forging a weapon...");
+                    Thread.Sleep(1000);
                     switch (inputType)
                     {
+
                         case 1:
-                            Console.WriteLine("Forging a weapon...");
-                            Thread.Sleep(1000);
-                            //Finish later
+                           
+                            forgedItem = LootTables.GetRandomItem(LootTables.CommonForgeOneHanded);
+                            Console.WriteLine($"Made the {forgedItem.Name}");
+                            inventory.PickupItem(forgedItem,false);
                             break;
+                        case 2:
+                            
+                            forgedItem = LootTables.GetRandomItem(LootTables.CommonForgeTwoHanded);
+                            Console.WriteLine($"Made the {forgedItem.Name}");
+                            inventory.PickupItem(forgedItem, false);
+                            break;
+                        case 3:
+                            
+                            forgedItem = LootTables.GetRandomItem(LootTables.CommonForgeHeavy);
+                            Console.WriteLine($"Made the {forgedItem.Name}");
+                            inventory.PickupItem(forgedItem, false);
+
+                            break;
+
+                        default:
+                            continue;
                     }
+                    
                 }
 
             }

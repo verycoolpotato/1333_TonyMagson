@@ -11,7 +11,7 @@ namespace DiceGame.Scripts.Items.Weapons
         public Warhammer(string WeaponName, Durability durability, Range DamageRange) : base(WeaponName,durability, DamageRange) 
         {
             ActionPointCost = 3;
-            Style = WeaponStyles.Heavy;
+            _style = WeaponStyles.Heavy;
             
         }
        

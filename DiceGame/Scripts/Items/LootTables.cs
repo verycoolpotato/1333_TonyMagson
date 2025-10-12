@@ -1,10 +1,6 @@
 ﻿using DiceGame.Scripts.Items.Consumables;
 using DiceGame.Scripts.Items.Weapons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DiceGame.Scripts.Items
 {
@@ -20,6 +16,7 @@ namespace DiceGame.Scripts.Items
             new KeyValuePair<Func<Item>, float>(() => new Shortsword("Fools Shortsword", Weapon.Durability.Fragile,new Range(2,4)), 0.3f),
             new KeyValuePair<Func<Item>, float>(() => new Shortsword("Travelers Shortsword", Weapon.Durability.Weathered,new Range(2,5)), 0.5f),
              new KeyValuePair<Func<Item>, float>(() => new Spear("Travelers Spear", Weapon.Durability.Weathered,new Range(5,7)), 0.4f),
+
             //consumables
             new KeyValuePair<Func<Item>, float>(() => new HealthGem(Consumable.RarityTiers.Common, new Range(3,7)), 1f),
             new KeyValuePair<Func<Item>, float>(() => new HealthGem(Consumable.RarityTiers.Uncommon, new Range(10,15)), 0.4f),
@@ -27,6 +24,18 @@ namespace DiceGame.Scripts.Items
             new KeyValuePair<Func<Item>, float>(() => new WorkableMetal(Consumable.RarityTiers.Common), 0.3f),
         };
 
+        internal static List<KeyValuePair<Func<Item>, float>> RareTreasure = new List<KeyValuePair<Func<Item>, float>>()
+        {
+            //weapons
+            new KeyValuePair<Func<Item>, float>(() => new Warhammer("Worn Warhammer", Weapon.Durability.Fragile,new Range(16,20)), 0.3f),
+            new KeyValuePair<Func<Item>, float>(() => new Spear("Blacksmiths Spear", Weapon.Durability.Sturdy,new Range(10,12)), 0.5f),
+             new KeyValuePair<Func<Item>, float>(() => new RedMetalSword("Red Metal Sword", Weapon.Durability.Weathered,new Range(6,12)), 0.3f),
+
+            //consumables
+            new KeyValuePair<Func<Item>, float>(() => new HealthGem(Consumable.RarityTiers.Uncommon, new Range(10,15)), 0.2f),
+            new KeyValuePair<Func<Item>, float>(() => new HealthGem(Consumable.RarityTiers.Rare, new Range(20,30)), 0.5f),
+            new KeyValuePair<Func<Item>, float>(() => new WorkableMetal(Consumable.RarityTiers.Rare), 0.3f),
+        };
 
 
         #endregion
@@ -56,10 +65,21 @@ namespace DiceGame.Scripts.Items
         internal static List<KeyValuePair<Func<Item>, float>> CommonForgeOneHanded = new List<KeyValuePair<Func<Item>, float>>()
         {
             //weapons
-            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Forged Shortsword", Weapon.Durability.Sturdy, new Range(4, 8)), 0.3f),
+            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Forged Shortsword", Weapon.Durability.Sturdy, new Range(5, 10)), 1f),
+            
+        };
+        internal static List<KeyValuePair<Func<Item>, float>> CommonForgeTwoHanded = new List<KeyValuePair<Func<Item>, float>>()
+        {
+            //weapons
+            new KeyValuePair<Func<Item>, float>(() => new Spear("Forged Spear", Weapon.Durability.Sturdy, new Range(7, 9)), 1f),
 
         };
+        internal static List<KeyValuePair<Func<Item>, float>> CommonForgeHeavy = new List<KeyValuePair<Func<Item>, float>>()
+        {
+            //weapons
+            new KeyValuePair<Func<Item>, float>(() => new Warhammer("Forged Warhammer", Weapon.Durability.Sturdy, new Range(10, 20)), 1f),
 
+        };
         #endregion
 
 

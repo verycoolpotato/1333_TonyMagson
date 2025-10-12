@@ -20,6 +20,7 @@ internal abstract class Item
     {
      
         CommandActions["Drop"] = Drop;
+       
     }
 
     internal abstract void Use();
@@ -68,7 +69,8 @@ internal abstract class Item
         {
             Console.WriteLine($"[{i + 1}] {keys[i]}");
         }
-
+        Console.WriteLine();
+        Console.WriteLine("[0] Back");
         int choice = InputHelper.GetIntInput() - 1;
         if (choice >= 0 && choice < keys.Count)
         {

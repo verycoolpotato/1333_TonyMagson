@@ -1,5 +1,6 @@
 ﻿using DiceGame.Scripts.Items.Consumables;
 using DiceGame.Scripts.Items.Weapons;
+using DiceGame.Scripts.Rooms.TreasureRooms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,11 @@ namespace DiceGame.Scripts.Rooms
     {
         internal static List<KeyValuePair<Func<Room>, float>> StandardFloorLayout = new List<KeyValuePair<Func<Room>, float>>()
         {
-            new KeyValuePair<Func<Room>, float>(() => new TreasureRoom(), 0.2f),
-            new KeyValuePair<Func<Room>, float>(() => new MonsterRoom(), 0.3f),
-            new KeyValuePair<Func<Room>, float>(() => new EmptyRoom(), 0.5f),
-            new KeyValuePair<Func<Room>, float>(() => new ForgeRoom(), 0.1f),
+            new KeyValuePair<Func<Room>, float>(() => new TreasureRoom(), 4f),
+            new KeyValuePair<Func<Room>, float>(() => new RareTreasureRoom(), 1f),
+            new KeyValuePair<Func<Room>, float>(() => new MonsterRoom(), 5f),
+            new KeyValuePair<Func<Room>, float>(() => new EmptyRoom(), 10f),
+            new KeyValuePair<Func<Room>, float>(() => new ForgeRoom(), 2f),
           
         };
 

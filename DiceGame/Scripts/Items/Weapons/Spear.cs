@@ -13,7 +13,7 @@ namespace DiceGame.Scripts.Items.Weapons
         public Spear(string WeaponName, Durability durability, Range DamageRange) : base(WeaponName,durability, DamageRange) 
         {
             ActionPointCost = 2;
-            Style = WeaponStyles.TwoHanded;
+            _style = WeaponStyles.TwoHanded;
             
         }
        

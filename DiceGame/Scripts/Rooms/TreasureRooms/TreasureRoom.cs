@@ -6,17 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiceGame.Scripts.Rooms
+namespace DiceGame.Scripts.Rooms.TreasureRooms
 {
     internal class TreasureRoom : Room
     {
         
         protected override string RoomDescription()
         {
-           
-            //Text
             return "A dusty old room filled with junk, a small glimmer escapes from beneath one of the piles";
-
         }
 
 
@@ -29,10 +26,16 @@ namespace DiceGame.Scripts.Rooms
                 return;
             }
             Console.WriteLine();
-            player!.inventory.PickupItem(LootTables.GetRandomItem(LootTables.CommonTreasure),true);
+            Loot(player!);
             _empty = true;
             _revealed = true;
         }
+
+        protected virtual void Loot(Player player)
+        {
+            player!.inventory.PickupItem(LootTables.GetRandomItem(LootTables.CommonTreasure), true);
+        }
+
         public override string RoomIcon()
         {
             if (!_revealed)

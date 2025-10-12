@@ -160,11 +160,22 @@ namespace DiceGame.Scripts.CoreSystems
             Console.WriteLine("==========================");
             int choice = InputHelper.GetIntInput();
             if (choice == 0)
+            {
+                WorldManager.Instance!.DisplayWorld(GameManager.Instance!.GamePlayer);
                 return;
+            }
+                
 
             choice--;
             if (_inventory[choice] != null)
+            {
+                
                 _inventory[choice]!.ShowDetails();
+                
+            }
+                
+
+
               
         }
 

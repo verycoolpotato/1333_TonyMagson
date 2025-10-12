@@ -33,16 +33,16 @@ namespace DiceGame.Scripts.Items.Weapons
         protected override void DescribeItem()
         {
             Console.WriteLine();
-            Console.WriteLine($"Weapon - {Style}");
+            Console.WriteLine($"Weapon - {_style}");
             Console.WriteLine($"Damage: {Die.Start.Value}-{Die.End.Value}");
             Console.WriteLine($"Durability: {WeaponDurability}");
             Console.WriteLine();
         }
 
-        protected WeaponStyles Style;
+        protected WeaponStyles _style;
         private Range _defaultDamage;
         internal Durability WeaponDurability;
-        private Random _random;
+        protected Random _random;
         internal Weapon(string WeaponName, Durability durability, Range die) : base(die)
         {
             CommandActions["Rename"] = Rename;
@@ -72,7 +72,8 @@ namespace DiceGame.Scripts.Items.Weapons
 
             if (WeaponDurability != Durability.Unbreakable)
             {
-                if (_random.Next(0, 2) == 0) // 50% chance
+                //chance to damage
+                if (_random.Next(0, 2) == 0) 
                 {
                     if (WeaponDurability < Durability.Shattered)
                     {
