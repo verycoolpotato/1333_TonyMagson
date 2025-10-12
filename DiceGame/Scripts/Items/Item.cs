@@ -1,4 +1,5 @@
-﻿using DiceGame.Scripts.HelperClasses;
+﻿using DiceGame.Scripts.CoreSystems;
+using DiceGame.Scripts.HelperClasses;
 
 internal abstract class Item
 {
@@ -6,7 +7,7 @@ internal abstract class Item
 
     protected Range Die;
 
-
+    public int ActionPointCost { get; protected set; }
     internal Item(Range die)
     {
         Die = die;
@@ -29,7 +30,10 @@ internal abstract class Item
         return Die;
     }
 
-    protected virtual void Drop()
+    /// <summary>
+    /// removes this item from the inventory
+    /// </summary>
+    protected void Drop()
     {
         Console.WriteLine($"Are you sure you want to get rid of {Name}?");
         Console.WriteLine("[1] Keep");
@@ -37,8 +41,18 @@ internal abstract class Item
         if (InputHelper.GetIntInput() == 2)
         {
             Console.WriteLine($"{Name} was dropped.");
-            
+
+            RemoveItem();
         }
+    }
+
+    protected void RemoveItem()
+    {
+        Inventory inventory = GameManager.Instance!.GamePlayer.inventory;
+
+        int index = inventory.GetInventory().IndexOf(this);
+
+        inventory.RemoveItemindex(index);
     }
 
     internal void ShowDetails()

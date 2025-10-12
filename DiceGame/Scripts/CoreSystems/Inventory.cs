@@ -72,7 +72,7 @@ namespace DiceGame.Scripts.CoreSystems
         }
 
         /// <summary>
-        /// Prompts the player to choose an item from their inventory
+        /// displays a combat oriented version of the inventory
         /// </summary>
         public Item CombatInventory()
         {
@@ -83,27 +83,34 @@ namespace DiceGame.Scripts.CoreSystems
             {
                 Item? item = _inventory[i];
 
-                if(_inventory[i] is Weapon weapon)
+                if (item is Weapon weapon)
                 {
-                    //display combat options in style
-                    Console.Write($"[{i + 1}] {weapon.Name} : ");
+                    Console.Write($"[{i + 1}] ");
+                    Console.Write($"{weapon.Name,-22} "); // widen name column
+
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write($"{weapon.DieRange().Start.Value}-{weapon.DieRange().End.Value} Damage");
+                    Console.Write($"{($"{weapon.DieRange().Start.Value}-{weapon.DieRange().End.Value} Damage"),-12}");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write($" : {weapon.WeaponDurability}");
+                    Console.Write($"{($"{weapon.WeaponDurability}"),-13}");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write($"{($"{weapon.ActionPointCost} Cost"),-10}");
                     Console.ResetColor();
                     Console.WriteLine();
                 }
-                else if(_inventory[i] is Consumable consumable)
+                else if (item is Consumable consumable)
                 {
-                    Console.Write($"[{i + 1}] {consumable.Name} : ");
+                    Console.Write($"[{i + 1}] ");
+                    Console.Write($"{consumable.Name,-25} ");
+
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write($"{consumable.DieRange().Start.Value}-{consumable.DieRange().End.Value} Roll");
+                    Console.Write($"{($"{consumable.DieRange().Start.Value}-{consumable.DieRange().End.Value} Roll"),-18}");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write($"{($"{consumable.ActionPointCost} Cost"),-10}");
                     Console.ResetColor();
                     Console.WriteLine();
                 }
-                
             }
+
             while (true)
             {
                  choice = InputHelper.GetIntInput() - 1;
@@ -133,9 +140,14 @@ namespace DiceGame.Scripts.CoreSystems
             for (int i = 0; i < _inventory.Count; i++)
             {
                 if (_inventory[i] != null)
-                    Console.WriteLine($"[{i + 1}] {_inventory[i].Name}");
+                    Console.WriteLine($"[{i + 1}] {_inventory[i]!.Name}");
                 else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
                     Console.WriteLine($"[{i + 1}] Empty");
+                    Console.ResetColor();
+                }
+                   
             }
 
             //Allow interacting with inventory

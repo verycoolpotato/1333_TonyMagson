@@ -11,16 +11,21 @@ namespace DiceGame.Scripts.Items.Weapons
     {
         internal enum Durability
         {
-            Unbreakble = 0,
+            Unbreakable = 0,
             Sturdy = 1,
             Weathered = 2,
             Fragile = 3,
             Shattered = 4,
             
         }
-
-
+        protected enum WeaponStyles 
+        {
+            None = 0,
+            OneHanded = 1,
+            TwoHanded = 2,
+            Heavy = 3
         
+        }
 
         /// <summary>
         /// Describe weapon specific attributes
@@ -33,8 +38,9 @@ namespace DiceGame.Scripts.Items.Weapons
             Console.WriteLine($"Durability: {WeaponDurability}");
             Console.WriteLine();
         }
+        
 
-
+        private Range _defaultDamage;
         internal Durability WeaponDurability;
         private Random _random;
         internal Weapon(string WeaponName, Durability durability, Range die) : base(die)
@@ -44,6 +50,7 @@ namespace DiceGame.Scripts.Items.Weapons
             Name = WeaponName;
             WeaponDurability = durability;
             _random = new Random();
+            _defaultDamage = die;
         }
 
         
@@ -63,7 +70,7 @@ namespace DiceGame.Scripts.Items.Weapons
         {
             
 
-            if (WeaponDurability != Durability.Unbreakble)
+            if (WeaponDurability != Durability.Unbreakable)
             {
                 if (_random.Next(0, 2) == 0) // 50% chance
                 {
@@ -76,11 +83,24 @@ namespace DiceGame.Scripts.Items.Weapons
                         Console.ResetColor();
                         Console.WriteLine();
                     }
+                    else
+                    {
+                        Die = new Range(0,2);
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine($"{Name?.ToUpper()} IS SHATTERED");
+                        Console.ResetColor();
+                    }
+                   
                 }
             }
         }
 
-
+        internal void Repair()
+        {
+            Die = _defaultDamage;
+            Console.WriteLine("Repair");
+            WeaponDurability = Durability.Sturdy;
+        }
 
     }
 }

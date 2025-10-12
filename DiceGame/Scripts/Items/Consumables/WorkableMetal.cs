@@ -1,12 +1,8 @@
-﻿using DiceGame.Scripts.CoreSystems;
+﻿
 using DiceGame.Scripts.Creatures;
 using DiceGame.Scripts.HelperClasses;
 using DiceGame.Scripts.Rooms;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DiceGame.Scripts.Items.Consumables
 {
@@ -42,8 +38,8 @@ namespace DiceGame.Scripts.Items.Consumables
                 Console.WriteLine("[2] Do Not");
                 while (true)
                 {
-                    int input = InputHelper.GetIntInput();
-                    switch (input)
+                    int inputConfirm = InputHelper.GetIntInput();
+                    switch (inputConfirm)
                     {
                         case 1:
                             break;
@@ -56,8 +52,25 @@ namespace DiceGame.Scripts.Items.Consumables
                     break;
                 }
 
-                Console.WriteLine("Ok less go");
+                Console.WriteLine("What kind of weapon will you forge?");
+                Console.WriteLine("[1] One-Handed");
+                Console.WriteLine("[2] Two-Handed");
+                Console.WriteLine("[3] Heavy");
 
+               
+                
+                while (true)
+                {
+                    int inputType = InputHelper.GetIntInput();
+                    switch (inputType)
+                    {
+                        case 1:
+                            Console.WriteLine("Forging a weapon...");
+                            Thread.Sleep(1000);
+                            //Finish later
+                            break;
+                    }
+                }
 
             }
             else

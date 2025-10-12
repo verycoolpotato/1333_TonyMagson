@@ -29,7 +29,7 @@ namespace DiceGame.Scripts.Rooms
                 return;
             }
             Console.WriteLine();
-            player!.inventory.PickupItem(LootTables.GetRandomItem(LootTables.CommonTreasureDrop),true);
+            player!.inventory.PickupItem(LootTables.GetRandomItem(LootTables.CommonTreasure),true);
             _empty = true;
             _revealed = true;
         }

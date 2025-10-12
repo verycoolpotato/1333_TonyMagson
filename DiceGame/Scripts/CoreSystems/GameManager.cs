@@ -46,6 +46,10 @@ namespace DiceGame.Scripts.CoreSystems
             GamePlayer.CheckInput();
         }
 
+        /// <summary>
+        /// start combat with the enemy passed 
+        /// </summary>
+        /// <param name="enemy"></param>
         public void Combat(Enemy enemy)
         {
             CombatLoop(GamePlayer, enemy);
@@ -61,35 +65,49 @@ namespace DiceGame.Scripts.CoreSystems
             
             while (player.Health > 0 && enemy.Health > 0)
             {
+                int PlayerActions = 3;
+
+                //Announce enemy intent
                 int enemyDamage = enemy.NextAttack();
                 Console.WriteLine();
 
-                // Player chooses an item
-                
-
+                //Players turn
                 int playerDamage = 0;
 
-                while (true)
+                while (PlayerActions > 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"You have {PlayerActions} Action points left this turn");
+                    Console.ResetColor();
+                    Console.WriteLine();
                     Item playerItem = player.inventory.CombatInventory();
-                    if (playerItem is Weapon weapon)
+
+                    if(playerItem.ActionPointCost <= PlayerActions)
                     {
-                        Range dmg = weapon.DieRange();
-                        weapon.Use();
-                        playerDamage = _roller.Roll(dmg.Start.Value, dmg.End.Value);
-                        break;
+                        if (playerItem is Weapon weapon)
+                        {
+                            Range dmg = weapon.DieRange();
+                            weapon.Use();
+                            playerDamage += _roller.Roll(dmg.Start.Value, dmg.End.Value);
+
+                        }
+                        else if (playerItem is Consumable consumable)
+                        {
+                            consumable.Use();
+                        }
+
+                        PlayerActions -= playerItem.ActionPointCost;
                     }
-                    else if (playerItem is Consumable consumable)
-                    {
-                        consumable.Use();
-                        
-                    }
+                    Console.ForegroundColor= ConsoleColor.Red;
+                    Console.WriteLine($"{playerDamage} Total Damage");
+                    Console.WriteLine();
                 }
                
 
-                Console.WriteLine($"{player.Name} rolled a {playerDamage}");
-                Console.WriteLine($"{enemy.Name} rolled a {enemyDamage}");
+                Console.WriteLine($"{player.Name} swings for {playerDamage}");
+                Console.WriteLine($"{enemy.Name} swings for {enemyDamage}");
                 Console.WriteLine();
+
                 //decide roll winner
                 switch (playerDamage > enemyDamage)
                 {

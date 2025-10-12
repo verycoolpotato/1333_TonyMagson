@@ -15,7 +15,8 @@ namespace DiceGame.Scripts.Items.Consumables
         public HealthGem (RarityTiers rarity, Range healing) : base(rarity, healing) 
         {
             _heal = healing;
-            Name = $"{rarity.ToString()} Health Gem"; 
+            Name = $"{rarity.ToString()} Health Gem";
+            ActionPointCost = 1;
         }
        
         private DieRoller _roller = new DieRoller();
@@ -36,8 +37,8 @@ namespace DiceGame.Scripts.Items.Consumables
         {
             Console.WriteLine();
             Console.WriteLine("You crush the health gem, your wounds begin to heal");
-            GameManager.Instance!.GamePlayer.Health += _roller.Roll(Die.Start.Value,Die.End.Value);  
-            
+            GameManager.Instance!.GamePlayer.Health += _roller.Roll(Die.Start.Value,Die.End.Value);
+            RemoveItem();
         }
     }
 }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DiceGame.Scripts.Items.Weapons
 {
-    internal class Shortsword : Weapon
+    internal class Spear : Weapon
     {
 
         
-        public Shortsword(string WeaponName, Durability durability, Range DamageRange) : base(WeaponName,durability, DamageRange) 
+        public Spear(string WeaponName, Durability durability, Range DamageRange) : base(WeaponName,durability, DamageRange) 
         {
-            ActionPointCost = 1;
+            ActionPointCost = 2;
             
         }
        
@@ -21,7 +21,7 @@ namespace DiceGame.Scripts.Items.Weapons
         protected override void DescribeItem()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("A common weapon, forged by any blacksmith. Despite its simplicity, it demands respect");
+            Console.WriteLine("Long and Sharp, great for keeping foes at bay");
             Console.ResetColor();
 
             base.DescribeItem();

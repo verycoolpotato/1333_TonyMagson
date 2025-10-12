@@ -11,28 +11,35 @@ namespace DiceGame.Scripts.Items
     internal static class LootTables
     {
         //tables contain pre written constructors which are used to make new instances, also has an associated drop weight value
-        //Treasure drops guarantee an item, drops do not
-        //rarity of loot table decides general loot quality
 
-        internal static List<KeyValuePair<Func<Item>, float>> CommonTreasureDrop = new List<KeyValuePair<Func<Item>, float>>()
+        //Treasure tables guarantee an item, typically a reward
+        #region TreasureTables
+        internal static List<KeyValuePair<Func<Item>, float>> CommonTreasure = new List<KeyValuePair<Func<Item>, float>>()
         {
             //weapons
-            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Fools Shortsword", Weapon.Durability.Fragile), 0.3f),
-            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Knights Shortsword", Weapon.Durability.Sturdy), 0.3f),
-            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Travelers Shortsword", Weapon.Durability.Weathered), 0.5f),
-
+            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Fools Shortsword", Weapon.Durability.Fragile,new Range(2,4)), 0.3f),
+            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Travelers Shortsword", Weapon.Durability.Weathered,new Range(2,5)), 0.5f),
+             new KeyValuePair<Func<Item>, float>(() => new Spear("Travelers Spear", Weapon.Durability.Weathered,new Range(5,7)), 0.4f),
             //consumables
             new KeyValuePair<Func<Item>, float>(() => new HealthGem(Consumable.RarityTiers.Common, new Range(3,7)), 1f),
             new KeyValuePair<Func<Item>, float>(() => new HealthGem(Consumable.RarityTiers.Uncommon, new Range(10,15)), 0.4f),
             new KeyValuePair<Func<Item>, float>(() => new HealthGem(Consumable.RarityTiers.Rare, new Range(20,30)), 0.1f),
+            new KeyValuePair<Func<Item>, float>(() => new WorkableMetal(Consumable.RarityTiers.Common), 0.3f),
         };
+
+
+
+        #endregion
+
+        //Drops do not guarantee an item, typically made of common variety loot
+        #region DropTables
 
         internal static List<KeyValuePair<Func<Item>, float>> CommonDrop = new List<KeyValuePair<Func<Item>, float>>()
         {
             //weapons
-            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Fools Shortsword", Weapon.Durability.Fragile), 0.3f),
-            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Knights Shortsword", Weapon.Durability.Sturdy), 0.3f),
-            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Travelers Shortsword", Weapon.Durability.Weathered), 0.5f),
+             new KeyValuePair<Func<Item>, float>(() => new Shortsword("Fools Shortsword", Weapon.Durability.Fragile,new Range(2,4)), 0.3f),
+            new KeyValuePair<Func<Item>, float>(() => new Spear("Worn Spear", Weapon.Durability.Weathered, new Range(4,6)), 0.5f),
+            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Travelers Shortsword", Weapon.Durability.Weathered,new Range(2,5)), 0.5f),
 
             //consumables
             new KeyValuePair<Func<Item>, float>(() => new HealthGem(Consumable.RarityTiers.Common, new Range(3,7)), 1f),
@@ -40,9 +47,20 @@ namespace DiceGame.Scripts.Items
             new KeyValuePair<Func<Item>, float>(() => new HealthGem(Consumable.RarityTiers.Rare, new Range(20,30)), 0.1f),
 
             //found nothing
-             new KeyValuePair<Func<Item>, float>(() => null, 2f)
+             new KeyValuePair<Func<Item>, float>(() => null!, 2f)
+        };
+        #endregion
+
+        //ForgeTables are only recieved from forges
+        #region ForgeTables
+        internal static List<KeyValuePair<Func<Item>, float>> CommonForgeOneHanded = new List<KeyValuePair<Func<Item>, float>>()
+        {
+            //weapons
+            new KeyValuePair<Func<Item>, float>(() => new Shortsword("Forged Shortsword", Weapon.Durability.Sturdy, new Range(4, 8)), 0.3f),
+
         };
 
+        #endregion
 
 
         /// <summary>

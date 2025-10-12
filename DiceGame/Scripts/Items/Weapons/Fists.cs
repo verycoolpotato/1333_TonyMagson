@@ -13,7 +13,7 @@ namespace DiceGame.Scripts.Items.Weapons
        
         public Fists() : base("Fist",0, new Range(1, 4)) 
         {
-            
+            ActionPointCost = 1;
             CommandActions.Clear();
         }
 

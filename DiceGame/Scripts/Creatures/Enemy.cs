@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,13 +30,19 @@ namespace DiceGame.Scripts.Creatures
         /// <returns></returns>
         internal int NextAttack()
         {
+            
             AttackWeight weight = (AttackWeight)_random.Next(1,4);
+
+            Range modifiedDamage = new Range(_baseDamage.Start.Value + (int)weight, _baseDamage.End.Value + (int)weight);
+
+            int damage = _random.Next(modifiedDamage.Start.Value,modifiedDamage.End.Value);
+
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"{Name} prepares a {weight} Attack!");
+            Console.WriteLine($"{Name} prepares a {weight} Attack ({modifiedDamage.Start.Value}-{modifiedDamage.End.Value})");
             Console.ResetColor();
             
-            int damage = _random.Next(_baseDamage.Start.Value,_baseDamage.End.Value);
-            damage += (int)weight;
+
             return damage;
 
         }
