@@ -50,10 +50,24 @@ namespace DiceGame.Scripts.Items.Weapons
             Name = WeaponName;
             WeaponDurability = durability;
             _random = new Random();
-            _defaultDamage = die;
+           
         }
 
-        
+        /// <summary>
+        /// Attack function, must return a single damage number in the end
+        /// </summary>
+        /// <param name="roller"></param>
+        /// <returns></returns>
+        internal virtual int Attack(DieRoller roller)
+        {
+          int roll = roller.Roll(Die.Start.Value,Die.End.Value);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"{Name} rolls {roll}");
+            Console.ResetColor();
+            Use();
+            return roll;
+        }
         /// <summary>
         /// allow weapon renaming
         /// </summary>
@@ -75,7 +89,7 @@ namespace DiceGame.Scripts.Items.Weapons
                 //chance to damage
                 if (_random.Next(0, 2) == 0) 
                 {
-                    if (WeaponDurability < Durability.Shattered)
+                    if (WeaponDurability < Durability.Fragile)
                     {
                         WeaponDurability = (Durability)((int)WeaponDurability + 1);
                         Console.WriteLine();
@@ -86,10 +100,11 @@ namespace DiceGame.Scripts.Items.Weapons
                     }
                     else
                     {
-                        Die = new Range(0,2);
+                        
                         Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine($"{Name?.ToUpper()} IS SHATTERED");
                         Console.ResetColor();
+                        RemoveItem();
                     }
                    
                 }
@@ -98,8 +113,8 @@ namespace DiceGame.Scripts.Items.Weapons
 
         internal void Repair()
         {
-            Die = _defaultDamage;
-            Console.WriteLine("Repair");
+           
+            Console.WriteLine("Repaired");
             WeaponDurability = Durability.Sturdy;
         }
 

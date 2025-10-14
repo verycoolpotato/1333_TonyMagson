@@ -82,9 +82,23 @@ namespace DiceGame.Scripts.CoreSystems
             for (int i = 0; i < _inventory.Count; i++)
             {
                 Item? item = _inventory[i];
-
-                if (item is Weapon weapon)
+                if(item is Fists fist)
                 {
+                    Console.Write($"[{i + 1}] ");
+                    Console.Write($"{fist.Name,-22} "); // widen name column
+
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write($"{($"{fist.DieRange().Start.Value}-{fist.DieRange().End.Value} Block"),-12}");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write($"{($"{fist.WeaponDurability}"),-13}");
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.Write($"{($"{fist.ActionPointCost} Cost"),-10}");
+                    Console.ResetColor();
+                    Console.WriteLine();
+                }
+                else if (item is Weapon weapon)
+                {
+                    
                     Console.Write($"[{i + 1}] ");
                     Console.Write($"{weapon.Name,-22} "); // widen name column
 

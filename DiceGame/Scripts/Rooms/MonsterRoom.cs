@@ -33,7 +33,7 @@ namespace DiceGame.Scripts.Rooms
         {
             if (!_empty)
             {
-                Enemy enemy = new Enemy(6, "Goblin", new Range(0, 5));
+                Enemy enemy = EnemyTables.GetRandomEnemy(EnemyTables.CommonEnemies);
 
                 GameManager.Instance!.Combat(enemy);
             }

@@ -17,6 +17,7 @@ namespace DiceGame.Scripts.Creatures
         }
         private Random _random;
         private Range _baseDamage;
+        internal Range ModifiedDamage;
         private enum AttackWeight
         {
             Light =1,
@@ -30,16 +31,17 @@ namespace DiceGame.Scripts.Creatures
         /// <returns></returns>
         internal int NextAttack()
         {
-            
-            AttackWeight weight = (AttackWeight)_random.Next(1,4);
 
-            Range modifiedDamage = new Range(_baseDamage.Start.Value + (int)weight, _baseDamage.End.Value + (int)weight);
+            AttackWeight[] values = (AttackWeight[])Enum.GetValues(typeof(AttackWeight));
+            AttackWeight weight = values[_random.Next(values.Length)];
 
-            int damage = _random.Next(modifiedDamage.Start.Value,modifiedDamage.End.Value);
+            ModifiedDamage = new Range(_baseDamage.Start.Value + (int)weight, _baseDamage.End.Value + (int)weight);
+
+            int damage = _random.Next(ModifiedDamage.Start.Value,ModifiedDamage.End.Value);
 
             
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"{Name} prepares a {weight} Attack ({modifiedDamage.Start.Value}-{modifiedDamage.End.Value})");
+            Console.WriteLine($"{Name} prepares a {weight} Attack ({ModifiedDamage.Start.Value}-{ModifiedDamage.End.Value})");
             Console.ResetColor();
             
 

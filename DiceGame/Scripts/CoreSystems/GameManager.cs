@@ -66,8 +66,9 @@ namespace DiceGame.Scripts.CoreSystems
             while (player.Health > 0 && enemy.Health > 0)
             {
                 int PlayerActions = 3;
-
+                int blockAmount = 0;
                 //Announce enemy intent and health
+                Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{enemy.Name} has {enemy.Health} Health");
                 int enemyDamage = enemy.NextAttack();
@@ -92,40 +93,44 @@ namespace DiceGame.Scripts.CoreSystems
                     Console.ResetColor();
                     Console.WriteLine();
                     Item playerItem = player.inventory.CombatInventory();
-
-                    if(playerItem.ActionPointCost <= PlayerActions)
+                    
+                    if (playerItem.ActionPointCost <= PlayerActions)
                     {
-                       
-                        if (playerItem is Weapon weapon)
+                        
+
+                        if(playerItem is Fists Guard)
                         {
-                            Range dmg = weapon.DieRange();
-                            weapon.Use();
-                            int roll = _roller.Roll(dmg.Start.Value, dmg.End.Value);
-                            playerDamage += roll;
-
-
-                            Console.WriteLine();
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            string rollString = $"Rolled a {roll}";
-                            for (int i = 0; i < rollString.Length; i++)
-                            {
-                                Console.Write(rollString[i]);
-                                Thread.Sleep(50);
-                            }
-                            Thread.Sleep(1000);
-                            Console.WriteLine();
+                            //damage reduction
+                             blockAmount += Guard.Attack(_roller);
+                            
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine($"{enemy.Name}'s attack reduced to " +
+                                $"{enemy.ModifiedDamage.Start.Value - blockAmount}-" +
+                                $"{enemy.ModifiedDamage.End.Value - blockAmount}");
                             Console.ResetColor();
+                            
+                        }
+                        else if (playerItem is Weapon weapon)
+                        {
+                            //deal damage
+                            Console.WriteLine();
+                            int roll = weapon.Attack(_roller);
+                            playerDamage += roll;
+                            Console.WriteLine();
                         }
                         else if (playerItem is Consumable consumable)
                         {
+                            //use item
                             consumable.Use();
                         }
 
                         PlayerActions -= playerItem.ActionPointCost;
+                        continue;
                     }
-                    
+                   
                 }
-               
+                //apply block
+                enemyDamage -= blockAmount;
 
                 Console.WriteLine($"{player.Name} swings for {playerDamage}");
                 Console.WriteLine($"{enemy.Name} swings for {enemyDamage}");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiceGame.Scripts.HelperClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace DiceGame.Scripts.Items.Weapons
     {
 
        
-        public Fists() : base("Fist",0, new Range(1, 4)) 
+        public Fists() : base("Guard",0, new Range(1, 4)) 
         {
             ActionPointCost = 1;
             CommandActions.Clear();
@@ -23,10 +24,21 @@ namespace DiceGame.Scripts.Items.Weapons
             //Override all commands
         }
 
+
+        internal override int Attack(DieRoller roller)
+        {
+
+            int blockAmount = roller.Roll(Die.Start.Value,Die.End.Value);
+
+            Console.WriteLine($"You brace for impact, rolled a {blockAmount}");
+            Console.WriteLine();
+            return blockAmount;
+        }
+
         protected override void DescribeItem()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Battered and bruised, a true last resort");
+            Console.WriteLine("Deal minimal damage while maintaining a defensive stance, reduces damage taken when used");
             Console.ResetColor();
 
             Console.WriteLine();
