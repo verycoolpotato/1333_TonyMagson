@@ -1,5 +1,6 @@
 ﻿using DiceGame.Scripts.CoreSystems;
 using DiceGame.Scripts.Items;
+using DiceGame.Scripts.Items.Consumables;
 using DiceGame.Scripts.Items.Weapons;
 using DiceGame.Scripts.Rooms;
 using System;
@@ -26,11 +27,11 @@ namespace DiceGame.Scripts.Creatures
             CurrentRoom = _worldManager!.Rooms()[(int)_currentLocation.X, (int)_currentLocation.Y];
             inventory = new Inventory() { };
 
-            
 
+            
             inventory.PickupItem(new Fists(),false);
             inventory.PickupItem(new Shortsword($"{Name}'s Shortsword", Weapon.Durability.Sturdy, new Range(5,8)), false);
-          
+            inventory.PickupItem(new WorkableMetal(Consumable.RarityTiers.Common), false);
         }
 
         public void CheckInput()

@@ -34,7 +34,7 @@ namespace DiceGame.Scripts.Items
             //consumables
             new KeyValuePair<Func<Item>, float>(() => new HealthGem(Consumable.RarityTiers.Uncommon, new Range(10,15)), 0.2f),
             new KeyValuePair<Func<Item>, float>(() => new HealthGem(Consumable.RarityTiers.Rare, new Range(20,30)), 0.5f),
-            new KeyValuePair<Func<Item>, float>(() => new WorkableMetal(Consumable.RarityTiers.Rare), 0.3f),
+            new KeyValuePair<Func<Item>, float>(() => new WorkableMetal(Consumable.RarityTiers.Common), 0.4f),
         };
 
 

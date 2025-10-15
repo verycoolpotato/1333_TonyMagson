@@ -46,7 +46,7 @@ namespace DiceGame.Scripts.Items.Weapons
         internal Weapon(string WeaponName, Durability durability, Range die) : base(die)
         {
             CommandActions["Rename"] = Rename;
-
+            _defaultDamage = Die;
             Name = WeaponName;
             WeaponDurability = durability;
             _random = new Random();
@@ -104,7 +104,7 @@ namespace DiceGame.Scripts.Items.Weapons
                         Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine($"{Name?.ToUpper()} IS SHATTERED");
                         Console.ResetColor();
-                        RemoveItem();
+                        Die = new Range(2,4);
                     }
                    
                 }
@@ -113,7 +113,7 @@ namespace DiceGame.Scripts.Items.Weapons
 
         internal void Repair()
         {
-           
+            Die = _defaultDamage;
             Console.WriteLine("Repaired");
             WeaponDurability = Durability.Sturdy;
         }

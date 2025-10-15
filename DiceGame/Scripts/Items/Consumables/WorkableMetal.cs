@@ -57,23 +57,22 @@ namespace DiceGame.Scripts.Items.Consumables
                     }
                     break;
                 }
-
-                Console.WriteLine("What kind of weapon will you forge?");
-                Console.WriteLine("[1] One-Handed");
-                Console.WriteLine("[2] Two-Handed");
-                Console.WriteLine("[3] Heavy");
-
-               
                 foreach (Item? item in inventory.GetInventory())
                 {
                     if (item == null)
-                        break;
-                    else
+                        break; 
+
+                   
+                    if (item == inventory.GetInventory().Last())
                     {
                         Console.WriteLine("Not enough space to forge, get rid of something");
                         return;
                     }
                 }
+                Console.WriteLine("What kind of weapon will you forge?");
+                Console.WriteLine("[1] One-Handed");
+                Console.WriteLine("[2] Two-Handed");
+                Console.WriteLine("[3] Heavy");
                 while (true)
                 {
                     
@@ -89,20 +88,20 @@ namespace DiceGame.Scripts.Items.Consumables
                             forgedItem = LootTables.GetRandomItem(LootTables.CommonForgeOneHanded);
                             Console.WriteLine($"Made the {forgedItem.Name}");
                             inventory.PickupItem(forgedItem,false);
-                            break;
+                            return;
                         case 2:
                             
                             forgedItem = LootTables.GetRandomItem(LootTables.CommonForgeTwoHanded);
                             Console.WriteLine($"Made the {forgedItem.Name}");
                             inventory.PickupItem(forgedItem, false);
-                            break;
+                            return;
                         case 3:
                             
                             forgedItem = LootTables.GetRandomItem(LootTables.CommonForgeHeavy);
                             Console.WriteLine($"Made the {forgedItem.Name}");
                             inventory.PickupItem(forgedItem, false);
 
-                            break;
+                            return;
 
                         default:
                             continue;
