@@ -29,7 +29,7 @@ namespace DiceGame.Scripts.Creatures
             
 
             inventory.PickupItem(new Fists(),false);
-            inventory.PickupItem(new Shortsword($"{Name}'s Shortsword", Weapon.Durability.Weathered, new Range(3,6)), false);
+            inventory.PickupItem(new Shortsword($"{Name}'s Shortsword", Weapon.Durability.Sturdy, new Range(5,8)), false);
           
         }
 
