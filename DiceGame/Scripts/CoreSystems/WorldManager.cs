@@ -88,11 +88,11 @@ namespace DiceGame.Scripts.CoreSystems
             }
         }
 
-        private void AssignRoomRefs(Room room)
-        {
-
-        }
-
+       
+        /// <summary>
+        /// Prints the world to the console
+        /// </summary>
+        /// <param name="player"></param>
         public void DisplayWorld(Player player)
         {
             Room[,] rooms = _rooms;
@@ -115,6 +115,7 @@ namespace DiceGame.Scripts.CoreSystems
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
         }
 
       

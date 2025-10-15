@@ -41,6 +41,7 @@ namespace DiceGame.Scripts.Creatures
                 Console.WriteLine("");
                 Console.WriteLine("[1] Search");
                 Console.WriteLine("[2] Inventory");
+                Console.WriteLine("");
                 var key = Console.ReadKey(true); 
 
                 switch (key.Key)
