@@ -1,10 +1,8 @@
-﻿
-
-namespace DiceGame.Scripts
+﻿namespace DiceGame.Scripts.HelperClasses
 {
     public class DieRoller
     {
-        private Random random;
+        protected Random random;
 
         public DieRoller()
         {
@@ -17,11 +15,9 @@ namespace DiceGame.Scripts
         /// </summary>
         /// <param name="die"></param>
         /// <returns></returns>
-        public int Roll(int die)
+        public int Roll(int min, int max)
         {
-            List<int> rolledDice = new List<int>();
-
-            int result = random.Next(1, die);
+            int result = random.Next(min, max + 1);
 
             return result;
         }

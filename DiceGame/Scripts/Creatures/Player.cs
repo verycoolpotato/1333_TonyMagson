@@ -1,29 +1,35 @@
-﻿using System;
+﻿using DiceGame.Scripts.CoreSystems;
+using DiceGame.Scripts.Items;
+using DiceGame.Scripts.Items.Weapons;
+using DiceGame.Scripts.Rooms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
 
-namespace DiceGame.Scripts
+namespace DiceGame.Scripts.Creatures
 {
     internal class Player : Creature
     {
 
         private WorldManager? _worldManager;
-        public Room CurrentRoom { get; set; }
+       internal static Room? CurrentRoom { get; set; }
 
         private Vector2 _currentLocation = new Vector2(0,0);
 
-       
+        
 
-        public Player(int health = 10, string name = "Player") : base(health, name)
+        public Player(int health = 30, string name = "Player") : base(health, name)
         {
             _worldManager = WorldManager.Instance;
             CurrentRoom = _worldManager!.Rooms()[(int)_currentLocation.X, (int)_currentLocation.Y];
             inventory = new Inventory() { };
 
-            inventory.PickupItem("Fists");
-            inventory.PickupItem("Sword");
+            
+
+            inventory.PickupItem(new Fists(),false);
+            inventory.PickupItem(new Shortsword($"{Name}'s Shortsword", Weapon.Durability.Sturdy, new Range(5,8)), false);
           
         }
 
@@ -32,7 +38,10 @@ namespace DiceGame.Scripts
             while (true)
             {
                 Console.WriteLine("Use arrow keys to move");
-                Console.WriteLine("Search [1]");
+                Console.WriteLine("");
+                Console.WriteLine("[1] Search");
+                Console.WriteLine("[2] Inventory");
+                Console.WriteLine("");
                 var key = Console.ReadKey(true); 
 
                 switch (key.Key)
@@ -50,7 +59,10 @@ namespace DiceGame.Scripts
                         Move(Room.Direction.North);
                         break;
                     case ConsoleKey.D1:
-                        CurrentRoom.OnRoomSearched(this);
+                        CurrentRoom!.OnRoomSearched(this);
+                        break;
+                    case ConsoleKey.D2:
+                        inventory.ViewInventory(Health,_maxHealth);
                         break;
                     default:
                         continue;
@@ -60,29 +72,20 @@ namespace DiceGame.Scripts
 
         public void Move(Room.Direction direction)
         {
-            if (CurrentRoom.HasConnection(direction))
-            {
-                // Exit the current room first
-                CurrentRoom.OnRoomExit();
+            if (CurrentRoom!.RoomRefs[direction] == null)
+                return;
 
-                // Update player location
-                _currentLocation += _worldManager!.PossibleDirections[direction];
-                CurrentRoom = _worldManager.Rooms()[(int)_currentLocation.X, (int)_currentLocation.Y];
+            // Exit the current room first
 
-                _worldManager.DisplayWorld(this);
+            CurrentRoom!.OnRoomExit();
 
-                // Enter the new room
-                CurrentRoom.OnRoomEnter();
-            }
-            else
-            {
-                Console.WriteLine("You can't move that way.");
-            }
+            CurrentRoom = CurrentRoom!.RoomRefs[direction];
+            
+              
+            _worldManager!.DisplayWorld(this);
+
+            // Enter the new room
+            CurrentRoom!.OnRoomEnter();
         }
-
-
-
-
-
     }
 }

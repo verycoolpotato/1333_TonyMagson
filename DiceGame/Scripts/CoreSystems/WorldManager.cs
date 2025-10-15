@@ -1,12 +1,15 @@
-﻿using System;
+﻿using DiceGame.Scripts.Creatures;
+using DiceGame.Scripts.Rooms;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using static DiceGame.Scripts.Room;
+using static DiceGame.Scripts.Rooms.Room;
 
 
-namespace DiceGame.Scripts
+namespace DiceGame.Scripts.CoreSystems
 {
     internal class WorldManager
     {
@@ -20,10 +23,10 @@ namespace DiceGame.Scripts
             {Direction.West, new Vector2(-1, 0)}
         };
 
+
         private Room[,] _rooms = new Room [5, 5];
 
-        private Room[] _roomTypes = new Room[] {new TreasureRoom(), new MonsterRoom() };
-
+     
         public Room[,] Rooms() => _rooms;
 
         private Random random;
@@ -44,14 +47,18 @@ namespace DiceGame.Scripts
             {
                 for (int column = 0; column < _rooms.GetLength(1); column++)
                 {
-                    _rooms[row, column] = random.Next(0, 2) == 0 ? new TreasureRoom() : new MonsterRoom();
+                    
+                    _rooms[row, column] = RoomTables.GetRandomRoom(RoomTables.StandardFloorLayout);
 
-                    _rooms[row, column].Coordinates = new System.Numerics.Vector2 (row, column);
+                    _rooms[row, column].SetWorld(this);
                 }
             }
             BuildDoors();
         }
 
+        /// <summary>
+        /// Creates connections between rooms
+        /// </summary>
         private void BuildDoors()
         {
             for (int column = 0; column < _rooms.GetLength(1); column++)
@@ -59,12 +66,33 @@ namespace DiceGame.Scripts
                 Console.WriteLine();
                 for (int row = 0; row < _rooms.GetLength(0); row++)
                 {
-                    _rooms[row, column].SetWorld(this);
-                    _rooms[row, column].DoorBuilder();
+                    //Assign room refs
+                    foreach (KeyValuePair<Direction, Room> i in _rooms[row, column].RoomRefs)
+                    {
+                 
+                        int x = row + (int)PossibleDirections[i.Key].X;
+                        x = Math.Clamp(x,0,_rooms.GetLength(0) -1);
+
+                        int y = column + (int)PossibleDirections[i.Key].Y;
+                        y = Math.Clamp(y, 0, _rooms.GetLength(1) -1);
+                        
+                            
+                            Room assignRoom = _rooms[x, y];
+
+                           _rooms[row, column].RoomRefs[i.Key] = assignRoom;
+                        
+                        
+                    }
+
                 }
             }
         }
 
+       
+        /// <summary>
+        /// Prints the world to the console
+        /// </summary>
+        /// <param name="player"></param>
         public void DisplayWorld(Player player)
         {
             Room[,] rooms = _rooms;
@@ -74,7 +102,7 @@ namespace DiceGame.Scripts
                 for (int col = 0; col < rooms.GetLength(1); col++)
                 {
                     var room = rooms[row, col];
-                    if (player.CurrentRoom == room)
+                    if (Player.CurrentRoom == room)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("[P]");
@@ -87,6 +115,7 @@ namespace DiceGame.Scripts
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
         }
 
       
