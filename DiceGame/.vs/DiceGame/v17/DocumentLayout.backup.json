@@ -150,8 +150,7 @@
               "RelativeToolTip": "Scripts\\CoreSystems\\GameManager.cs",
               "ViewState": "AgIAAFAAAAAAAAAAAIAwwM4AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T03:53:35.518Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-11T03:53:35.518Z"
             },
             {
               "$type": "Document",
@@ -211,8 +210,7 @@
               "RelativeToolTip": "Scripts\\Creatures\\Player.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAEsAAAB1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T18:30:06.856Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-08T18:30:06.856Z"
             },
             {
               "$type": "Document",
@@ -246,7 +244,7 @@
               "RelativeDocumentMoniker": "Scripts\\CoreSystems\\WorldManager.cs",
               "ToolTip": "C:\\Users\\arand\\Documents\\GitHub\\1333_TonyMagson\\DiceGame\\Scripts\\CoreSystems\\WorldManager.cs",
               "RelativeToolTip": "Scripts\\CoreSystems\\WorldManager.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAwwDQAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwDQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-06T21:23:23.473Z",
               "EditorCaption": ""
@@ -261,8 +259,7 @@
               "RelativeToolTip": "Scripts\\Rooms\\StairCase.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAgwB4AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T22:43:47.661Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T22:43:47.661Z"
             },
             {
               "$type": "Document",
@@ -298,8 +295,7 @@
               "RelativeToolTip": "Scripts\\Rooms\\RoomTables.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-11T21:26:07.284Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-11T21:26:07.284Z"
             },
             {
               "$type": "Document",
@@ -371,8 +367,7 @@
               "RelativeToolTip": "Scripts\\Items\\Weapons\\RedMetalSword.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T04:38:56.015Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T04:38:56.015Z"
             },
             {
               "$type": "Document",
@@ -456,8 +451,7 @@
               "RelativeToolTip": "Scripts\\Rooms\\Room.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAGYAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T20:43:00.486Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-06T20:43:00.486Z"
             },
             {
               "$type": "Document",

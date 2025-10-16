@@ -50,7 +50,7 @@ namespace DiceGame.Scripts.CoreSystems
         public void BuildWorld()
         {
             _rooms[0, 0] = new ForgeRoom();
-            _rooms[5, 5] = new StairCase();
+            
             for (int row = 0; row < _rooms.GetLength(0); row++)
             {
                 for (int column = 0; column < _rooms.GetLength(1); column++)
