@@ -43,14 +43,19 @@ namespace DiceGame.Scripts.CoreSystems
         /// </summary>
         public void BuildWorld()
         {
+            _rooms[0, 0] = new ForgeRoom();
+
             for (int row = 0; row < _rooms.GetLength(0); row++)
             {
                 for (int column = 0; column < _rooms.GetLength(1); column++)
                 {
-                    
-                    _rooms[row, column] = RoomTables.GetRandomRoom(RoomTables.StandardFloorLayout);
+                    if (_rooms[row, column] == null)
+                    {
+                        _rooms[row, column] = RoomTables.GetRandomRoom(RoomTables.StandardFloorLayout);
 
-                    _rooms[row, column].SetWorld(this);
+                        _rooms[row, column].SetWorld(this);
+                    }
+                    
                 }
             }
             BuildDoors();

@@ -88,25 +88,26 @@ namespace DiceGame.Scripts.Items.Consumables
                             forgedItem = LootTables.GetRandomItem(LootTables.CommonForgeOneHanded);
                             Console.WriteLine($"Made the {forgedItem.Name}");
                             inventory.PickupItem(forgedItem,false);
-                            return;
+                            break;
                         case 2:
                             
                             forgedItem = LootTables.GetRandomItem(LootTables.CommonForgeTwoHanded);
                             Console.WriteLine($"Made the {forgedItem.Name}");
                             inventory.PickupItem(forgedItem, false);
-                            return;
+                            break;
                         case 3:
                             
                             forgedItem = LootTables.GetRandomItem(LootTables.CommonForgeHeavy);
                             Console.WriteLine($"Made the {forgedItem.Name}");
                             inventory.PickupItem(forgedItem, false);
 
-                            return;
+                            break;
 
                         default:
                             continue;
                     }
-                    
+                    RemoveItem();
+                    return;
                 }
 
             }
