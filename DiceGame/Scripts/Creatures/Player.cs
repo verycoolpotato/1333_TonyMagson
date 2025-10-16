@@ -73,20 +73,28 @@ namespace DiceGame.Scripts.Creatures
 
         public void Move(Room.Direction direction)
         {
-            if (CurrentRoom!.RoomRefs[direction] == null)
+            //room values are clamped so if a room would reference a room that doesnt exist, it instead references itself
+            if (CurrentRoom!.RoomRefs[direction] == CurrentRoom)
+            {
+                Console.WriteLine("Thats a wall");
                 return;
-
-            // Exit the current room first
-
-            CurrentRoom!.OnRoomExit();
-
-            CurrentRoom = CurrentRoom!.RoomRefs[direction];
+            }
             
-              
-            _worldManager!.DisplayWorld(this);
+                // Exit the current room first
 
-            // Enter the new room
-            CurrentRoom!.OnRoomEnter();
+                CurrentRoom!.OnRoomExit();
+
+                CurrentRoom = CurrentRoom!.RoomRefs[direction];
+
+
+                _worldManager!.DisplayWorld(this);
+
+                // Enter the new room
+                CurrentRoom!.OnRoomEnter();
+            
+
+
+               
         }
     }
 }
