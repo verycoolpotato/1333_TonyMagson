@@ -38,6 +38,12 @@ namespace DiceGame.Scripts.CoreSystems
             // Initialize Random instance once
             random = new Random();
         }
+
+        internal void ClearWorld()
+        {
+            _rooms = new Room[5, 5];
+        }
+
         /// <summary>
         /// Generates the world
         /// </summary>
