@@ -89,7 +89,7 @@ namespace DiceGame.Scripts.Items.Weapons
                 //chance to damage
                 if (_random.Next(0, 2) == 0) 
                 {
-                    if (WeaponDurability < Durability.Fragile)
+                    if (WeaponDurability < Durability.Shattered)
                     {
                         WeaponDurability = (Durability)((int)WeaponDurability + 1);
                         Console.WriteLine();
